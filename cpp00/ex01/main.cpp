@@ -1,19 +1,17 @@
-#include <iostream>
-#include "MAP.hpp"
-
+#include "PB.hpp"
 
 int main(void)
 {
     std::string input;
-    PhoneBook Phone_Book;
+    PhoneBook pb;
 
     while (1)
     {
         std::cout << "Please Enter Command:";
         std::cin >> input;
-        if (input == "ADD")
+        if (std::cin.eof() && input == "ADD")
         {
-            Phone_Book.get_details();
+            pb.get_contact();
         }
         else
             std::cout << "other\n";
