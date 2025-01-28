@@ -1,19 +1,22 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp PhoneBook.cpp
-OBJ = $(SRC:.cpp=.o)
-NAME = MyPhoneBook
+all:
+	$(CXX) $(CXXFLAGS) *.cpp -o PhoneBook
 
-all: $(NAME)
+# SRC = main.cpp PhoneBook.cpp contact.cpp 
+# OBJ = $(SRC:.cpp=.o)
+# NAME = MyPhoneBook
 
-$(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+# all: $(NAME)
 
-clean:
-	rm -f $(OBJ)
+# $(NAME): $(OBJ)
+# 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
-fclean: clean
-	rm -f $(NAME)
+# clean:
+# 	rm -f $(OBJ)
 
-re: fclean all
+# fclean: clean
+# 	rm -f $(NAME)
+
+# re: fclean all

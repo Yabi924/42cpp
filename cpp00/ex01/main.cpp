@@ -1,3 +1,4 @@
+#include "contact.hpp"
 #include "PB.hpp"
 
 int main(void)
@@ -5,24 +6,23 @@ int main(void)
     std::string input;
     PhoneBook pb;
 
-    while (1)
+    while (input != "EXIT")
     {
-        std::cout << "Please Enter Command:";
-        std::cin >> input;
-        if (std::cin.eof() && input == "ADD")
+        std::cout << "Please Enter Command (ADD | SEARCH | EXIT) : ";
+        std::getline(std::cin, input);
+        if (input == "ADD")
+        {
+            pb.set_contact();
+        }
+        else if (input == "SEARCH")
         {
             pb.get_contact();
         }
-        else
-            std::cout << "other\n";
-        // else if (input == "SEARCH")
-        // {
-
-        // }
-        // else if (input == "EXIT")
-        // {
-
-        // }
+        if (std::cin.eof())
+        {
+            std::cout << std::endl;
+            break ;
+        }
     }
     return (0);
 }
