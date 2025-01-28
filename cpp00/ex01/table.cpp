@@ -1,6 +1,6 @@
 #include "PB.hpp"
 
-void PhoneBook::print_contact(std::string temp)
+void print_contact(std::string temp)
 {
     int i = 0;
 

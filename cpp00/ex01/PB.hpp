@@ -16,7 +16,6 @@ class PhoneBook
     void set_contact(void);
     void get_contact(void);
     void table(void);
-    void print_contact(std::string);
 };
 
 #endif

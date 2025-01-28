@@ -16,7 +16,7 @@ all:
 # clean:
 # 	rm -f $(OBJ)
 
-# fclean: clean
-# 	rm -f $(NAME)
+fclean:
+	rm -f PhoneBook
 
 # re: fclean all
