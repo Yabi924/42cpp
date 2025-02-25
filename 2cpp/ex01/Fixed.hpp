@@ -10,7 +10,6 @@ class Fixed
     private:
     int fixedPointNumber;
     const static int fractionalBits = 8;
-    friend std::ostream &operator<<(std::ostream &os, const Fixed& fixed);
 
     public:
     Fixed(void);
@@ -25,6 +24,6 @@ class Fixed
     int toInt(void) const;
 };
 
-// std::ostream &operator<<(std::ostream &os, const Fixed& fixed);
+std::ostream &operator<<(std::ostream &os, const Fixed& fixed);
 
 #endif
