@@ -1,4 +1,16 @@
-#include "PB.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   table.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 22:51:37 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/04 22:51:40 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "pb.hpp"
 
 void print_contact(std::string temp)
 {
@@ -32,9 +44,9 @@ void PhoneBook::table(void)
         {
             std::cout << '|';
             std::cout << i + 1 << ".        |";
-            print_contact(this->contact[i].get_first_name());
-            print_contact(this->contact[i].get_last_name());
-            print_contact(this->contact[i].get_nickname());
+            print_contact(this->contact[i].get_fn());
+            print_contact(this->contact[i].get_ln());
+            print_contact(this->contact[i].get_nm());
             std::cout << std::endl;
         }
     }
@@ -44,9 +56,9 @@ void PhoneBook::table(void)
         {
             std::cout << '|';
             std::cout << i + 1 << ".        |";
-            print_contact(this->contact[i].get_first_name());
-            print_contact(this->contact[i].get_last_name());
-            print_contact(this->contact[i].get_nickname());
+            print_contact(this->contact[i].get_fn());
+            print_contact(this->contact[i].get_ln());
+            print_contact(this->contact[i].get_nm());
             std::cout << std::endl;
         }
     }

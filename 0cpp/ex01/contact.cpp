@@ -1,51 +1,63 @@
-#include "PB.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 22:51:28 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/04 22:51:29 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void Contact::set_first_name(std::string first_name)
+#include "contact.hpp"
+
+void    Contact::set_fn(std::string fn)
 {
-    this->first_name = first_name;
+    this->first_name = fn;
 }
 
-void Contact::set_last_name(std::string last_name)
+void    Contact::set_ln(std::string ln)
 {
-    this->last_name = last_name;
+    this->last_name = ln;
 }
 
-void Contact::set_nickname(std::string nickname)
+void    Contact::set_nm(std::string nm)
 {
-    this->nickname = nickname;
+    this->nickname = nm;
 }
 
-void Contact::set_phone_number(std::string phone_number)
+void    Contact::set_pn(std::string pn)
 {
-    this->phone_number = phone_number;
+    this->phone_number = pn;
 }
 
-void Contact::set_secret(std::string secret)
+void    Contact::set_ds(std::string ds)
 {
-    this->darkest_secret = secret;
+    this->darkest_secret = ds;
 }
 
-std::string Contact::get_first_name(void)
+std::string Contact::get_fn(void)
 {
-    return this->first_name;
+    return (this->first_name);
 }
 
-std::string Contact::get_last_name(void)
+std::string Contact::get_ln(void)
 {
-    return this->last_name;
+    return (this->last_name);
 }
 
-std::string Contact::get_nickname(void)
+std::string Contact::get_nm(void)
 {
-    return this->nickname;
+    return (this->nickname);
 }
 
-std::string Contact::get_phone_number(void)
+std::string Contact::get_pn(void)
 {
-    return this->phone_number;
+    return (this->phone_number);
 }
 
-std::string Contact::get_secret(void)
+std::string Contact::get_ds(void)
 {
-    return this->darkest_secret;
+    return (this->darkest_secret);
 }

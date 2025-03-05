@@ -1,29 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 22:51:32 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/04 22:53:34 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-# include <string>
 # include <iostream>
+# include <string>
 
 class Contact
 {
-    private:
+private:
     std::string first_name;
     std::string last_name;
     std::string nickname;
     std::string phone_number;
     std::string darkest_secret;
 
-    public:
-    void set_first_name(std::string first_name);
-    void set_last_name(std::string last_name);
-    void set_nickname(std::string nickname);
-    void set_phone_number(std::string phone_number);
-    void set_secret(std::string secret);
-    std::string get_first_name(void);
-    std::string get_last_name(void);
-    std::string get_nickname(void);
-    std::string get_phone_number(void);
-    std::string get_secret(void);
+public:
+    void set_fn(std::string fn);
+    void set_ln(std::string ln);
+    void set_nm(std::string nm);
+    void set_pn(std::string pn);
+    void set_ds(std::string ds);
+
+    std::string get_fn(void);
+    std::string get_ln(void);
+    std::string get_nm(void);
+    std::string get_pn(void);
+    std::string get_ds(void);
 };
 
 #endif

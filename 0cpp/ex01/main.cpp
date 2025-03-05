@@ -1,28 +1,33 @@
-#include "contact.hpp"
-#include "PB.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 22:51:45 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/05 19:05:46 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "pb.hpp"
 
 int main(void)
 {
-    std::string input;
-    PhoneBook pb;
+    PhoneBook PB;
+    std::string input("");
 
-    while (input != "EXIT")
+    while (1)
     {
-        std::cout << "Please Enter Command (ADD | SEARCH | EXIT) : ";
+        input = "";
+        std::cout << "PhoneBook: [ADD|SEARCH|EXIT] > ";
         std::getline(std::cin, input);
-        if (input == "ADD")
-        {
-            pb.set_contact();
-        }
-        else if (input == "SEARCH")
-        {
-            pb.get_contact();
-        }
-        if (std::cin.eof())
-        {
-            std::cout << std::endl;
+        if (!std::cin.eof() && input == "ADD")
+            PB.add();
+        else if (!std::cin.eof() && input == "SEARCH")
+            PB.search();
+        if (std::cin.eof() || input == "EXIT")
             break ;
-        }
     }
     return (0);
 }

@@ -1,7 +1,5 @@
 all: 
-	g++ -Wall -Wextra -Werror -std=c++98 -o megaphone megaphone.cpp
+	g++ -pedantic -Wall -Wextra -Werror --std=c++98 -o megaphone megaphone.cpp
 
-fclean: 
+clean:
 	rm -rf megaphone
-
-re: fclean all

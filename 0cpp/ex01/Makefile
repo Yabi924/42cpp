@@ -1,10 +1,5 @@
-CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+all: 
+	g++ -pedantic -Wall -Wextra -Werror --std=c++98 -o PhoneBook *.cpp
 
-all:
-	$(CXX) $(CXXFLAGS) *.cpp -o PhoneBook
-
-fclean:
-	rm -f PhoneBook
-
-re: fclean all
+clean:
+	rm -rf PhoneBook
