@@ -1,172 +1,179 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/06 21:43:08 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/07 19:02:36 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
-Fixed::Fixed(void):fixedPointNumber(0)
-{
-}
+const int Fixed::fractionalBits = 8;
+
+Fixed::Fixed(): FixedPointValue(0){}
 
 Fixed::Fixed(const Fixed &other)
 {
-    fixedPointNumber = other.fixedPointNumber;
+    *this = other;
 }
 
-Fixed::Fixed(int n): fixedPointNumber(n * (1 << fractionalBits))
+Fixed::Fixed(const float f): FixedPointValue(roundf(f * (1 << fractionalBits))){}
+
+Fixed::Fixed(const int integer): FixedPointValue(integer * (1 << fractionalBits)){}
+
+Fixed::~Fixed(){}
+
+void    Fixed::setRawBits(int const raw)
 {
+    this->FixedPointValue = raw;
 }
 
-Fixed::Fixed(const float n): fixedPointNumber(roundf(n * (1 << fractionalBits)))
+int     Fixed::getRawBits(void) const
 {
+    return (this->FixedPointValue);
 }
 
-Fixed::~Fixed(void)
+int     Fixed::toInt(void) const
 {
+    return (roundf(this->FixedPointValue / (1 << fractionalBits)));
 }
 
-int Fixed::getRawBits(void) const
+float   Fixed::toFloat(void) const
 {
-    return this->fixedPointNumber;
+    return ((float)this->FixedPointValue / (1 << fractionalBits));
 }
 
-void Fixed::setRawBits(int const raw)
+std::ostream    &operator<<(std::ostream &out, const Fixed &fixed)
 {
-    this->fixedPointNumber = raw;
+    out << fixed.toFloat();
+    return (out);
 }
 
-float Fixed::toFloat(void) const
-{
-    return (((float)fixedPointNumber) / (1 << fractionalBits));
-}
-
-int Fixed::toInt(void) const
-{
-    return roundf((fixedPointNumber / (1 << fractionalBits)));
-}
-
-std::ostream &operator<<(std::ostream &os, const Fixed& fixed)
-{
-    os << fixed.toFloat();
-    return os;
-}
-
-Fixed &Fixed::operator=(const Fixed &other)
+Fixed   &Fixed::operator=(const Fixed &other)
 {
     if (this == &other)
-        return *this;
-    this->fixedPointNumber = other.getRawBits();
-    return *this;
+        return (*this);
+
+    this->FixedPointValue = other.FixedPointValue;
+    return (*this);
 }
 
-Fixed Fixed::operator+(const Fixed &other) const
+Fixed   Fixed::operator+(const Fixed &other)
 {
-    return Fixed (this->toFloat() + other.toFloat());
+    return (Fixed(this->toFloat() + other.toFloat()));
 }
 
-Fixed Fixed::operator-(const Fixed &other) const
+Fixed   Fixed::operator-(const Fixed &other)
+{   
+    return (Fixed(this->toFloat() - other.toFloat()));
+}
+
+Fixed   Fixed::operator*(const Fixed &other)
 {
-    return Fixed (this->toFloat() - other.toFloat());
+    return (Fixed(this->toFloat() * other.toFloat()));
 }
 
-Fixed Fixed::operator*(const Fixed &other) const
+Fixed   Fixed::operator/(const Fixed &other)
 {
-    return Fixed (this->toFloat() * other.toFloat());
+    return (Fixed(this->toFloat() / other.toFloat()));
 }
 
-Fixed Fixed::operator/(const Fixed &other) const
+bool    Fixed::operator<(const Fixed &other) const
 {
-    return Fixed (this->toFloat() / other.toFloat());
+    if (this->FixedPointValue < other.FixedPointValue)
+        return (true);
+    return (false);
 }
 
-bool Fixed::operator>(const Fixed &other) const
+bool    Fixed::operator<=(const Fixed &other) const
 {
-    if (this->toFloat() > other.toFloat())
-        return true;
-    return false;
+    if (this->FixedPointValue <= other.FixedPointValue)
+        return (true);
+    return (false);
 }
 
-bool Fixed::operator>=(const Fixed &other) const
+bool    Fixed::operator>(const Fixed &other) const
 {
-    if (this->toFloat() >= other.toFloat())
-        return true;
-    return false;
+    if (this->FixedPointValue > other.FixedPointValue)
+        return (true);
+    return (false);
 }
 
-bool Fixed::operator<(const Fixed &other) const
+bool    Fixed::operator>=(const Fixed &other) const
 {
-    if (this->toFloat() < other.toFloat())
-        return true;
-    return false;
+    if (this->FixedPointValue >= other.FixedPointValue)
+        return (true);
+    return (false);
 }
 
-bool Fixed::operator<=(const Fixed &other) const
+bool    Fixed::operator==(const Fixed &other) const
 {
-    if (this->toFloat() <= other.toFloat())
-        return true;
-    return false;
+    if (this->FixedPointValue == other.FixedPointValue)
+        return (true);
+    return (false);
 }
 
-bool Fixed::operator==(const Fixed &other) const
+bool    Fixed::operator!=(const Fixed &other) const
 {
-    if (this->toFloat() == other.toFloat())
-        return true;
-    return false;
+    if (this->FixedPointValue != other.FixedPointValue)
+        return (true);
+    return (false);
 }
 
-bool Fixed::operator!=(const Fixed &other) const
+Fixed   &Fixed::operator++()
 {
-    if (this->toFloat() != other.toFloat())
-        return true;
-    return false;
+    this->FixedPointValue++;
+    return (*this);
 }
 
-Fixed &Fixed::operator++()
+Fixed   &Fixed::operator--()
 {
-    fixedPointNumber += 1;
-    return *this;
+    this->FixedPointValue--;
+    return (*this);
 }
 
-Fixed &Fixed::operator--()
-{
-    fixedPointNumber -= 1;
-    return *this;
-}
-
-Fixed Fixed::operator++(int)
-{
-    Fixed temp(*this);
-    fixedPointNumber += 1;
-    return temp;
-}
-
-Fixed Fixed::operator--(int)
+Fixed   Fixed::operator++(int)
 {
     Fixed temp(*this);
-    fixedPointNumber -= 1;
-    return temp;
+    this->FixedPointValue++;
+    return (temp);
+}
+
+Fixed   Fixed::operator--(int)
+{
+    Fixed temp(*this);
+    this->FixedPointValue--;
+    return (temp);
+}
+
+Fixed   &Fixed::min(Fixed &a, Fixed &b)
+{
+    if (a < b)
+        return (a);
+    return (b);
+}
+
+const Fixed   &Fixed::min(const Fixed &a, const Fixed &b)
+{
+    if (a < b)
+        return (a);
+    return (b);
+}
+
+Fixed   &Fixed::max(Fixed &a, Fixed &b)
+{
+    if (a > b)
+        return (a);
+    return (b);
 }
 
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
     if (a > b)
-        return a;
-    return b;
-}
-
-Fixed &Fixed::max(Fixed &a, Fixed &b)
-{
-    if (a > b)
-        return a;
-    return b; 
-}
-
-const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
-{
-    if (a < b)
-        return a;
-    return b;
-}
-
-Fixed &Fixed::min(Fixed &a, Fixed &b)
-{
-    if (a < b)
-        return a;
-    return b;
+        return (a);
+    return (b);
 }

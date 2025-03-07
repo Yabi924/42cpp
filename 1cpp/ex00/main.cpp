@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/05 21:40:16 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/07 21:55:53 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
-int main()
+int main(void)
 {
-    Zombie* Zombie_A = newZombie("A");
-    Zombie_A->announce();
-    delete Zombie_A;
+    Zombie *haha = newZombie("haha");
+    haha->announce();
+    delete haha;
 
-    randomChump("Zombie_B");
-    randomChump("Zombie_C");
-    randomChump("Zombie_D");
+    Zombie ZombieA("reimu");
+    ZombieA.announce();
 
-    return 0;
+    randomChump("baka");
+    return (0);
 }

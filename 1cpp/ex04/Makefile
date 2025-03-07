@@ -1,7 +1,8 @@
 all:
-	c++ -Wall -Wextra -Werror -std=c++98 *.cpp -o replace
+	c++ -pedantic -Wall -Wextra -Werror --std=c++98 -o replace *.cpp
 
-fclean:
-	rm replace
+clean:
+	rm -rf replace
 
-re: fclean all
+r:
+	valgrind --tool=memcheck ./replace

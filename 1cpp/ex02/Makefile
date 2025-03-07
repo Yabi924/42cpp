@@ -1,7 +1,5 @@
 all:
-	c++ -Wall -Wextra -Werror -std=c++98 *.cpp -o HI_THIS_IS_BRAIN
+	c++ -Wall -Wextra -Werror --std=c++98 -o hi main.cpp
 
-fclean:
-	rm HI_THIS_IS_BRAIN
-
-re: fclean all
+clean:
+	rm -rf hi

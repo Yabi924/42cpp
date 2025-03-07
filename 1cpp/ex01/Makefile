@@ -1,7 +1,8 @@
 all:
-	c++ -Wall -Wextra -Werror -std=c++98 *.cpp -o more_brainz!
+	c++ -Wall -Wextra -Werror --std=c++98 *.cpp -o Zombie
 
-fclean:
-	rm more_brainz!
+clean:
+	rm -rf Zombie
 
-re: fclean all
+r:
+	valgrind --tool=memcheck ./Zombie

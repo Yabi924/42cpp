@@ -1,13 +1,26 @@
-#include "Harl.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/06 20:34:10 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/07 21:57:14 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(void)
-{
-    Harl ehh;
-    ehh.complain("DEBUG");
-    ehh.complain("INFO");
-    ehh.complain("WARNING");
-    ehh.complain("ERROR");
-    ehh.complain("good");
+ #include "Harl.hpp"
 
-    return 0;
-}
+ int main(void)
+ {
+    Harl huh;
+
+    huh.complain("DEBUG");
+    huh.complain("INFO");
+    huh.complain("WARNING");
+    huh.complain("ERROR");
+    huh.complain("good");
+    return (0);
+ }
+ 

@@ -1,7 +1,8 @@
 all:
-	c++ -Wall -Wextra -Werror -std=c++98 *.cpp -o harlFiler
+	c++ -pedantic -Wall -Wextra -Werror --std=c++98 -o harlFilter *.cpp
 
-fclean:
-	rm harlFiler
+clean:
+	rm -rf harlFilter
 
-re: fclean all
+r:
+	valgrind --tool=memcheck ./harlFilter

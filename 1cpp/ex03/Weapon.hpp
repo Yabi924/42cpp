@@ -1,18 +1,31 @@
-#ifndef WEAPON_H
-# define WEAPON_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/05 21:40:58 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/07 21:56:57 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# include <string>
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
+
 # include <iostream>
+# include <string>
 
 class Weapon
 {
-    private:
+private:
     std::string type;
 
-    public:
-    Weapon(std::string type);
-    std::string getType();
-    void setType(std::string set);
+public:
+    Weapon(std::string _type);
 
+    const std::string &getType();
+    void setType(std::string _type);
 };
+ 
 #endif

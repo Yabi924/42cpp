@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/05 21:40:49 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/07 21:56:46 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : name(name)
+HumanB::HumanB(std::string _name): name(_name)
 {
-    weapon = NULL;
+    this->club = NULL;
 }
 
-void HumanB::setWeapon(Weapon &w)
+void    HumanB::attack(void)
 {
-    weapon = &w;
+    if (!this->club)
+        std::cout << this->name << " haven't weapon :c" << std::endl;
+    else 
+        std::cout << this->name << " attacks with their " << this->club->getType() << std::endl;
 }
 
-void HumanB::attack(void)
+void    HumanB::setWeapon(Weapon &_club)
 {
-    if (weapon)
-        std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-    else
-        std::cout << name << " has not weapon!" << std::endl;
+    this->club = &_club;
 }

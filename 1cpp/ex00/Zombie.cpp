@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/05 21:40:24 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/05 21:40:25 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name) : name(name) {}
+Zombie::Zombie(std::string _name): name(_name){}
 
-Zombie::~Zombie(void)
+Zombie::~Zombie()
 {
-    std::cout << "Deleted zombie: " << name << std::endl;
+    std::cout << this->name << ": say bye bye" << std::endl;
 }
 
 void    Zombie::announce(void)
 {
-    std::cout << name << ": BraiiiiiiinnnzzzZ" << std::endl;
+    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

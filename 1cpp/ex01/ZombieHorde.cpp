@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 20:34:08 by yyan-bin          #+#    #+#             */
-/*   Updated: 2025/03/07 21:57:13 by yyan-bin         ###   ########.fr       */
+/*   Created: 2025/03/05 21:40:37 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/07 21:56:17 by yyan-bin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Zombie.hpp"
 
-# include <iostream>
-# include <string>
-
-class Harl
+Zombie  *zombieHorde(int N, std::string name)
 {
-private:
-    void    DEBUG(void);
-    void    INFO(void);
-    void    WARNING(void);
-    void    ERROR(void);
+    if (N < 1 || !name[0])
+        return (NULL);
 
-public:
-    void    complain(std::string level);
-};
+    Zombie *newZombie = new Zombie[N];
 
-#endif
+    for (int i = 0; i < N; i++)
+        newZombie[i].setName(name);
+    for (int j = 0; j < N; j++)
+        newZombie[j].announce();
+
+    return (newZombie);
+}

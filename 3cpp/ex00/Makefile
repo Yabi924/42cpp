@@ -8,10 +8,10 @@ OBJ=$(SRCS:.cpp=.o)
 all: $(NAME)
 
 %.o: %.cpp
-	g++ $(CFLAG) --std=c++98 -c $< -o $@
+	c++ $(CFLAG) --std=c++98 -c $< -o $@
 
 $(NAME): $(OBJ)
-	g++ $(CFLAG) --std=c++98 -o $(NAME) $(OBJ)
+	c++ $(CFLAG) --std=c++98 -o $(NAME) $(OBJ)
 
 clean:
 	rm -rf *.o

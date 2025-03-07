@@ -1,5 +1,17 @@
-#include <string>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/05 21:40:41 by yyan-bin          #+#    #+#             */
+/*   Updated: 2025/03/05 21:40:42 by yyan-bin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 
 int main(void)
 {
@@ -15,21 +27,5 @@ int main(void)
     std::cout << *stringPTR << std::endl;
     std::cout << stringREF << std::endl;
 
-    // *stringPTR = "XD";
-    // std::cout << A << std::endl;
-    // std::cout << *stringPTR << std::endl;
-    // std::cout << stringREF << std::endl;
-
-    // stringREF = "huh";
-    // std::cout << A << std::endl;
-    // std::cout << *stringPTR << std::endl;
-    // std::cout << stringREF << std::endl;
-
-    // std::string ontherVar = "hehe";
-    // stringREF = ontherVar;
-    // std::cout << A << std::endl;
-    // std::cout << *stringPTR << std::endl;
-    // std::cout << stringREF << std::endl;
-
-    return 0;
+    return (0);
 }

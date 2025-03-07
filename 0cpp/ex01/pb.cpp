@@ -6,7 +6,7 @@
 /*   By: yyan-bin <yyan-bin@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 22:51:30 by yyan-bin          #+#    #+#             */
-/*   Updated: 2025/03/05 19:15:59 by yyan-bin         ###   ########.fr       */
+/*   Updated: 2025/03/07 21:55:41 by yyan-bin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void    PhoneBook::add(void)
     if (this->index == 8)
     {
         this->index = 0;
-        this->flag++;
+        this->flac++;
     }
 }
 

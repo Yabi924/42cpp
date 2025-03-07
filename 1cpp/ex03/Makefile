@@ -1,7 +1,8 @@
 all:
-	c++ -Wall -Wextra -Werror -std=c++98 *.cpp -o FIGHT
+	c++ -pedantic -Wall -Wextra -Werror --std=c++98 -o fight *.cpp
 
-fclean:
-	rm FIGHT
+clean:
+	rm -rf fight
 
-re: fclean all
+r:
+	valgrind --tool=memcheck ./fight
