@@ -1,7 +1,7 @@
 NAME=Fight
 CFLAG=-Wall -Wextra -Werror
 SRCS=main.cpp \
-	ClapTrap.c \
+	ClapTrap.cpp \
 
 OBJ=$(SRCS:.cpp=.o)
 
