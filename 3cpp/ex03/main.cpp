@@ -1,14 +1,21 @@
-#include "FlagTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
-    FlagTrap a("Yabi");
+    DiamondTrap a("yabi");
+    std::cout << "===============================\n";
 
-    for (int i = 0; i < 100; i++)
-        a.attack("Noya");
+    a.takeDamage(10);
+    std::cout << "===============================\n";
 
-    a.takeDamage(90);
-    a.beRepaired(80);
-    a.highFiveGuys();
+    a.beRepaired(1);
+    std::cout << "===============================\n";
+
+    DiamondTrap b(a);
+    std::cout << "===============================\n";
+
+    b.beRepaired(1);
+    std::cout << "===============================\n";
+
     return (0);
 }
