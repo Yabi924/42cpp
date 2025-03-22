@@ -1,6 +1,9 @@
 #include "include/Cat.hpp"
 
-Cat::Cat(): Animal() {}
+Cat::Cat(): Animal()
+{
+    type = "Cat";
+}
 
 Cat::Cat(const std::string &_type): Animal(_type) {}
 

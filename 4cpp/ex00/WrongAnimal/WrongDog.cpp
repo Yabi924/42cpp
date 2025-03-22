@@ -1,6 +1,9 @@
 #include "WrongDog.hpp"
 
-WrongDog::WrongDog(): WrongAnimal() {}
+WrongDog::WrongDog(): WrongAnimal()
+{
+    type = "WrongDog";
+}
 
 WrongDog::WrongDog(const std::string &_type): WrongAnimal(_type) {}
 

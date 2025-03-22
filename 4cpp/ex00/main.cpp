@@ -5,7 +5,7 @@ int main(void)
 {
     Animal *A = new Animal;
     Animal *Neko = new Cat("Neko");
-    Animal *Inu = new Dog("Inu");
+    Animal *Inu = new Dog;
 
     A->makeSound();
     Inu->makeSound();

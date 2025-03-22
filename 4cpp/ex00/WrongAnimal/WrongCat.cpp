@@ -1,6 +1,9 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(): WrongAnimal() {}
+WrongCat::WrongCat(): WrongAnimal()
+{
+    type = "WrongCat";
+}
 
 WrongCat::WrongCat(const std::string &_type): WrongAnimal(_type) {}
 

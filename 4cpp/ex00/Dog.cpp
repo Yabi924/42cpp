@@ -1,6 +1,9 @@
 #include "include/Dog.hpp"
 
-Dog::Dog(): Animal() {}
+Dog::Dog(): Animal()
+{
+    type = "Dog";
+}
 
 Dog::Dog(const std::string &_type): Animal(_type) {}
 
