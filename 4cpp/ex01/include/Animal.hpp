@@ -17,7 +17,7 @@ public:
 
     Animal &operator=(const Animal &other);
 
-    virtual void makeSound(void);
+    virtual void makeSound(void) const;
 };
 
 #endif

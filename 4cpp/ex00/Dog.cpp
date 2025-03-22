@@ -29,7 +29,7 @@ Dog &Dog::operator=(const Dog &other)
     return (*this);
 }
 
-void Dog::makeSound(void)
+void Dog::makeSound(void) const
 {
     std::cout << type << ": aoaoaoaoaoao" << std::endl;
 }

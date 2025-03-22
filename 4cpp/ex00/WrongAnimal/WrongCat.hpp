@@ -13,7 +13,7 @@ public:
 
     WrongCat &operator=(const WrongCat &other);
 
-    void makeSound(void);
+    void makeSound(void) const;
 };
 
 #endif

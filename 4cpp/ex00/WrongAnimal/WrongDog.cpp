@@ -2,18 +2,18 @@
 
 WrongDog::WrongDog(): WrongAnimal()
 {
-    std::cout << "WrongDpg Default constructor called" << std::endl;
+    std::cout << "WrongDog Default constructor called" << std::endl;
     type = "WrongDog";
 }
 
 WrongDog::WrongDog(const std::string &_type): WrongAnimal(_type)
 {
-    std::cout << "WrongDpg Arg constructor called" << std::endl;
+    std::cout << "WrongDog Arg constructor called" << std::endl;
 }
 
 WrongDog::WrongDog(const WrongDog &other): WrongAnimal(other)
 {
-    std::cout << "WrongDpg Copy constructor called" << std::endl;
+    std::cout << "WrongDog Copy constructor called" << std::endl;
 }
 
 WrongDog::~WrongDog() 
@@ -29,7 +29,7 @@ WrongDog &WrongDog::operator=(const WrongDog &other)
     return (*this);
 }
 
-void WrongDog::makeSound(void)
+void WrongDog::makeSound(void) const
 {
     std::cout << type << ": aoaoaoaoaoao" << std::endl;
 }
