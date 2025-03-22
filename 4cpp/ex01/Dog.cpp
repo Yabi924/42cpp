@@ -2,19 +2,12 @@
 
 Dog::Dog(): Animal()
 {
-    std::cout << "Dog Default constructor called" << std::endl;
     type = "Dog";
 }
 
-Dog::Dog(const std::string &_type): Animal(_type)
-{
-    std::cout << "Dog Arg constructor called" << std::endl;
-}
+Dog::Dog(const std::string &_type): Animal(_type) {}
 
-Dog::Dog(const Dog &other): Animal(other)
-{
-    std::cout << "Dog Copy constructor called" << std::endl;
-}
+Dog::Dog(const Dog &other): Animal(other){}
 
 Dog::~Dog() 
 {

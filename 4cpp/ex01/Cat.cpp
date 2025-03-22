@@ -2,19 +2,12 @@
 
 Cat::Cat(): Animal()
 {
-    std::cout << "Cat Default constructor called" << std::endl;
     type = "Cat";
 }
 
-Cat::Cat(const std::string &_type): Animal(_type)
-{
-    std::cout << "Cat Arg constructor called" << std::endl;
-}
+Cat::Cat(const std::string &_type): Animal(_type) {}
 
-Cat::Cat(const Cat &other): Animal(other)
-{
-    std::cout << "Cat Copy constructor called" << std::endl;
-}
+Cat::Cat(const Cat &other): Animal(other){}
 
 Cat::~Cat() 
 {

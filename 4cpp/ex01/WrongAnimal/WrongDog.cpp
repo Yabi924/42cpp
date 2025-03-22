@@ -2,19 +2,12 @@
 
 WrongDog::WrongDog(): WrongAnimal()
 {
-    std::cout << "WrongDpg Default constructor called" << std::endl;
     type = "WrongDog";
 }
 
-WrongDog::WrongDog(const std::string &_type): WrongAnimal(_type)
-{
-    std::cout << "WrongDpg Arg constructor called" << std::endl;
-}
+WrongDog::WrongDog(const std::string &_type): WrongAnimal(_type) {}
 
-WrongDog::WrongDog(const WrongDog &other): WrongAnimal(other)
-{
-    std::cout << "WrongDpg Copy constructor called" << std::endl;
-}
+WrongDog::WrongDog(const WrongDog &other): WrongAnimal(other){}
 
 WrongDog::~WrongDog() 
 {

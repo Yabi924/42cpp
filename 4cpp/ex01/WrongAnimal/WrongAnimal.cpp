@@ -5,19 +5,12 @@ WrongAnimal::~WrongAnimal()
     std::cout << "WrongAnimal Destructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(): type("huh")
-{
-    std::cout << "WrongAnimal Default constructor called" << std::endl;
-}
+WrongAnimal::WrongAnimal(): type("huh") {}
 
-WrongAnimal::WrongAnimal(const std::string &_type): type(_type)
-{
-    std::cout << "WrongAnimal Arg constructor called" << std::endl;
-}
+WrongAnimal::WrongAnimal(const std::string &_type): type(_type) {}
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other)
 {
-    std::cout << "WrongAnimal Copy constructor called" << std::endl;
     *this = other;
 }
 
