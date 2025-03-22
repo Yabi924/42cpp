@@ -1,21 +1,19 @@
 #include "DiamondTrap.hpp"
 
+//HP = 100 (FT)
+//Energy = 50 (ST)
+//ATK = 30 (FT)
 int main(void)
 {
-    DiamondTrap a("yabi");
-    std::cout << "===============================\n";
+    DiamondTrap a("Yabi");
+    a.whoAmI();
 
-    a.takeDamage(10);
-    std::cout << "===============================\n";
-
-    a.beRepaired(1);
-    std::cout << "===============================\n";
-
+    a.takeDamage(99);
+    for (int i = 0; i < 49; i++)
+        a.attack("Noya");
     DiamondTrap b(a);
-    std::cout << "===============================\n";
 
-    b.beRepaired(1);
-    std::cout << "===============================\n";
-
+    b.beRepaired(99);
+    b.attack("You");
     return (0);
 }

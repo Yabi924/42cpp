@@ -79,6 +79,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     if (this->EnergyPoint == 0)
     {
         std::cout << "\033[4;31mClapTrap " << this->Name << " not enough anergy points!\033[0m" << std::endl;
+        return ;
     }
     this->EnergyPoint--;
     this->HitPoint += amount;

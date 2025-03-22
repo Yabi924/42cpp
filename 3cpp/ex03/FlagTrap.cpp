@@ -15,7 +15,7 @@ FlagTrap::FlagTrap(const FlagTrap &other): ClapTrap(other)
 
 FlagTrap::FlagTrap(const std::string &_name): ClapTrap(_name)
 {
-    std::cout << "\033[4;35mFlagTrap Name constructor called\033[0m" << std::endl;
+    std::cout << "\033[4;35mFlagTrap [" << _name << "] Name constructor called\033[0m" << std::endl;
     this->HitPoint = 100;
     this->EnergyPoint = 100;
     this->AttackDamage = 30;

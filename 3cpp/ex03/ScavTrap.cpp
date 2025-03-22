@@ -15,7 +15,7 @@ ScavTrap::ScavTrap(const ScavTrap &other): ClapTrap(other)
 
 ScavTrap::ScavTrap(const std::string &_name): ClapTrap(_name)
 {
-    std::cout << "\033[4;34mScavTrap Name constructor called\033[0m" << std::endl;
+    std::cout << "\033[4;34mScavTrap [" << _name << "] Name constructor called\033[0m" << std::endl;
     this->HitPoint = 100;
     this->EnergyPoint = 50;
     this->AttackDamage = 20;
@@ -47,16 +47,16 @@ void ScavTrap::attack(const std::string &target)
 {
     if (this->HitPoint == 0)
     {
-        std::cout << "\033[4;34mScavtrap " << this->Name << " HP=";
+        std::cout << "\033[4;34mScavTrap " << this->Name << " HP=";
         std::cout << this->HitPoint << " can't attack!\033[0m" << std::endl;
         return ;
     }
     if (this->EnergyPoint == 0)
     {
-        std::cout << "\033[4;34mScavtrap " << this->Name << " not enough energy point!\033[0m" << std::endl;
+        std::cout << "\033[4;34mScavTrap " << this->Name << " not enough energy point!\033[0m" << std::endl;
         return ;
     }
     this->EnergyPoint--;
-    std::cout << "\033[4;34mScavtrap " << this->Name << " attacks " << target;
+    std::cout << "\033[4;34mScavTrap " << this->Name << " attacks " << target;
     std::cout << ", causing " << this->AttackDamage << " points of damage!\033[0m" << std::endl;
 }
