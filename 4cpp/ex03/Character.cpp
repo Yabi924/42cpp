@@ -14,11 +14,9 @@ Character::Character(const std::string &_Name): ICharacter(_Name)
 Character::~Character()
 {
     for (int i = 0; i < skillCount; i++)
-        if (skill[i])
-            delete skill[i];
+        delete skill[i];
     for (int i = 0; i < uskillCount; i++)
-        if (unequipSkill[i])
-            delete unequipSkill[i];
+        delete unequipSkill[i];
 }
 
 const std::string &Character::getName(void) const
@@ -31,10 +29,7 @@ void Character::equip(AMateria *m)
     if (skillCount != 4)
         skill[skillCount++] = m;
     else
-    {
         std::cout << "Max skill" << std::endl;
-        delete m;
-    }
     //show skill table
 }
 
@@ -46,13 +41,13 @@ void Character::unequip(int idx)
         return ;
     }
 
-    std::cout << "Unequip " << skill[idx]->getType() << std::endl;
+    std::cout << this->Name << ": Unequip " << skill[idx]->getType() << std::endl;
 
     unequipSkill[uskillCount++] = skill[idx];
     skill[idx] = NULL;
     skillCount--;
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 3; i++)
     {
         if (!skill[i] && skill[i + 1])
         {
