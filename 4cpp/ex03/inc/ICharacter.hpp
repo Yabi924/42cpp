@@ -1,17 +1,22 @@
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-# include <string>
-# include <iostream>
-# include "rpg.hpp"
+class AMateria;
+
+# include "string"
+# include "iostream"
 
 class ICharacter
 {
 protected:
     std::string Name;
     AMateria *skill[4];
+    AMateria *unequipSkill[100];
+    int skillCount;
+    int uskillCount;
 
 public:
+    ICharacter(const std::string &_Name);
     virtual ~ICharacter();
 
     virtual const std::string &getName(void) const = 0;

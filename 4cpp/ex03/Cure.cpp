@@ -2,7 +2,7 @@
 
 Cure::~Cure() {}
 
-Cure::Cure(): AMateria("Cure") {}
+Cure::Cure(): AMateria("cure") {}
 
 AMateria *Cure::clone(void) const
 {

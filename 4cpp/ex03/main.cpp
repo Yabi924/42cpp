@@ -8,12 +8,14 @@ int main(void)
 
     ICharacter* me = new Character("me");
     
+    std::cout << "ok\n";
+
     AMateria* tmp;
     tmp = src->createMateria("ice");
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
-    
+
     ICharacter* bob = new Character("bob");
     
     me->use(0, *bob);
@@ -22,6 +24,6 @@ int main(void)
     delete bob;
     delete me;
     delete src;
-    
+
     return (0);
 }
