@@ -9,8 +9,8 @@ MateriaSource::MateriaSource():IMateriaSource()
 
 MateriaSource::~MateriaSource()
 {
-    while (--qty > 0)
-        delete Source[qty];
+    for (int i = 0; i < qty; i++)
+        delete Source[i];
 }
 
 void MateriaSource::learnMateria(AMateria *skill)

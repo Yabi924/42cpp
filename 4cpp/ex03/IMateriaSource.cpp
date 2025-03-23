@@ -1,10 +1,6 @@
 #include "inc/IMateriaSource.hpp"
 
-IMateriaSource::~IMateriaSource()
-{
-    while (--qty > 0)
-        delete Source[qty];
-}
+IMateriaSource::~IMateriaSource() {}
 
 IMateriaSource::IMateriaSource(): qty(0)
 {
