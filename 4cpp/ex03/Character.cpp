@@ -29,7 +29,10 @@ void Character::equip(AMateria *m)
     if (skillCount != 4)
         skill[skillCount++] = m;
     else
+    {
         std::cout << "Max skill" << std::endl;
+        unequipSkill[uskillCount++] = m;
+    }
     //show skill table
 }
 
