@@ -35,7 +35,7 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
-    if (!skill[idx])
+    if (!skill[idx] || idx < 0 || idx > 3)
     {
         std::cout << "Empty index!" << std::endl;
         return ;
