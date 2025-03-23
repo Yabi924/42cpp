@@ -8,5 +8,6 @@
 # include "IMateriaSource.hpp"
 # include "Character.hpp"
 # include "Ice.hpp"
+# include "Cure.hpp"
 
 #endif
