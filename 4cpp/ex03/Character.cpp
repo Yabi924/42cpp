@@ -59,7 +59,10 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-    if (idx < 0 || idx > 4 || !skill[idx])
-        return ;
-    skill[idx]->use(target);
+    if (idx < 0 || idx > 4)
+        std::cout << "Charater: invalid index: " << idx << ". [Use:0-3]" << std::endl;
+    else if (!skill[idx])
+        std::cout << target.getName() << " skill index:" << idx << " is empty!" << std::endl;
+    else
+        skill[idx]->use(target);
 }
