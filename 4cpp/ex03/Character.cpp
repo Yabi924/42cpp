@@ -1,6 +1,6 @@
 #include "inc/Character.hpp"
 
-Character::Character(const std::string &_Name): ICharacter(_Name)
+Character::Character(const std::string &_Name)
 {
     Name = _Name;
     skillCount = 0;
@@ -11,12 +11,71 @@ Character::Character(const std::string &_Name): ICharacter(_Name)
         unequipSkill[i] = NULL;
 }
 
+Character::Character(const Character &other)
+{
+    *this = other;
+}
+
+Character::Character(const ICharacter &other)
+{
+    *this = other;
+}
+
 Character::~Character()
 {
     for (int i = 0; i < skillCount; i++)
         delete skill[i];
     for (int i = 0; i < uskillCount; i++)
         delete unequipSkill[i];
+}
+
+Character &Character::operator=(const ICharacter &other)
+{
+    if (this == &other)
+        return (*this);
+    this->skillCount = other.skillCount;
+    this->uskillCount = other.uskillCount;
+    this->Name = other.Name;
+    for (int i = 0; i < 4; i++)
+    {
+        if (!other.skill[i])
+            this->skill[i] = NULL;
+        else
+            this->skill[i] = other.skill[i]->clone();
+    }
+    for (int i = 0; i < 100; i++)
+    {
+        if (!other.unequipSkill[i])
+            this->unequipSkill[i] = NULL;
+        else
+            this->unequipSkill[i] = other.unequipSkill[i]->clone();
+    }
+    return (*this);
+}
+
+
+Character &Character::operator=(const Character &other)
+{
+    if (this == &other)
+        return (*this);
+    this->skillCount = other.skillCount;
+    this->uskillCount = other.uskillCount;
+    this->Name = other.Name;
+    for (int i = 0; i < 4; i++)
+    {
+        if (!other.skill[i])
+            this->skill[i] = NULL;
+        else
+            this->skill[i] = other.skill[i]->clone();
+    }
+    for (int i = 0; i < 100; i++)
+    {
+        if (!other.unequipSkill[i])
+            this->unequipSkill[i] = NULL;
+        else
+            this->unequipSkill[i] = other.unequipSkill[i]->clone();
+    }
+    return (*this);
 }
 
 const std::string &Character::getName(void) const
@@ -69,3 +128,4 @@ void Character::use(int idx, ICharacter &target)
     else
         skill[idx]->use(target);
 }
+
