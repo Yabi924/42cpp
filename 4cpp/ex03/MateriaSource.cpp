@@ -26,6 +26,6 @@ AMateria *MateriaSource::createMateria(const std::string &type)
     while (++i < this->qty)
         if (Source[i]->getType() == type)
             return (Source[i]->clone());
-    std::cout << "MateriaSource: can't find the Materia" << std::endl;
+    std::cout << "MateriaSource: can't find the Materia:" << type << std::endl;
     return (NULL);
 }
