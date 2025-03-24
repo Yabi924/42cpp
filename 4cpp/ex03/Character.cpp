@@ -33,26 +33,15 @@ Character &Character::operator=(const ICharacter &other)
 {
     if (this == &other)
         return (*this);
-    this->skillCount = other.skillCount;
-    this->uskillCount = other.uskillCount;
-    this->Name = other.Name;
+    this->skillCount = other.getSkillCount();
+    this->uskillCount = other.get_uSkillCount();
+    this->Name = other.getName();
     for (int i = 0; i < 4; i++)
-    {
-        if (!other.skill[i])
-            this->skill[i] = NULL;
-        else
-            this->skill[i] = other.skill[i]->clone();
-    }
+        this->skill[i] = other.getSkill(i);
     for (int i = 0; i < 100; i++)
-    {
-        if (!other.unequipSkill[i])
-            this->unequipSkill[i] = NULL;
-        else
-            this->unequipSkill[i] = other.unequipSkill[i]->clone();
-    }
+        this->unequipSkill[i] = other.getuSkill(i);
     return (*this);
 }
-
 
 Character &Character::operator=(const Character &other)
 {
@@ -92,7 +81,7 @@ void Character::equip(AMateria *m)
         std::cout << "Max skill" << std::endl;
         unequipSkill[uskillCount++] = m;
     }
-    //show skill table
+    skillTable(m->getType());
 }
 
 void Character::unequip(int idx)
@@ -129,3 +118,40 @@ void Character::use(int idx, ICharacter &target)
         skill[idx]->use(target);
 }
 
+int Character::getSkillCount(void) const
+{
+    return (this->skillCount);
+}
+
+int Character::get_uSkillCount(void) const
+{
+    return (this->uskillCount);
+}
+
+AMateria *Character::getSkill(int i) const
+{
+    if (!this->skill[i])
+        return (NULL);
+    return (this->skill[i]->clone());
+}
+
+AMateria *Character::getuSkill(int i) const
+{
+    if (!this->unequipSkill[i])
+        return (NULL);
+    return (this->unequipSkill[i]->clone());
+}
+
+void Character::skillTable(std::string type) const
+{
+    std::cout << "Charater->" << this->Name << ": now adding->" << type <<std::endl;
+    for (int i = 0; i < 4; i++)
+    {
+        std::cout << "Skill index " << i << ":";
+        if (!skill[i])
+            std::cout << "Empty.";
+        else
+            std::cout << skill[i]->getType();
+        std::cout << std::endl;
+    }
+}

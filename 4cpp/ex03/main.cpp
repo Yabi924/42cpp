@@ -14,18 +14,46 @@ int main(void)
     tmp = src->createMateria("cure");
     me->equip(tmp);
 
-    ICharacter *bob = new Character("bob");
+    // //test use()
+    // {
+    //     std::cout << "========use========\n";
+    //     ICharacter *bob = new Character("bob");
 
-    me->use(0, *bob);
-    me->use(1, *bob);
+    //     me->use(0, *bob);
+    //     me->use(1, *bob);
+    //     delete bob;
+    //     std::cout << "===================\n";
+    // }
 
-    std::cout << "a" << std::endl;
-    ICharacter *jack = new Character(*me);
+    // //Character copy constructor
+    // {
+    //     std::cout << "========copy constructor========\n";
+    //     ICharacter *jack = new Character(*me);
 
-    jack->use(1, *me);
+    //     jack->use(1, *me);
+    //     jack->use(0, *me);
+    //     tmp = src->createMateria("ice");
+    //     jack->equip(tmp);
 
-    delete jack;
-    delete bob;
+    //     jack->use(2, *me);
+    //     delete jack;
+    //     std::cout << "===================\n";
+    // }
+
+    // // Character copy operator
+    // {
+    //     std::cout << "========copy operator========\n";
+    //     Character jack = *me;
+
+    //     jack.use(1, *me);
+    //     jack.use(0, *me);
+    //     tmp = src->createMateria("ice");
+    //     jack.equip(tmp);
+
+    //     jack.use(2, *me);
+    //     std::cout << "===================\n";
+    // }
+
     delete me;
     delete src;
 

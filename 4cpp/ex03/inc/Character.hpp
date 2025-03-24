@@ -23,13 +23,16 @@ public:
     Character &operator=(const ICharacter &other);
 
     const std::string &getName(void) const;
-    int &getSkillCount(void) const;
-    int &getUSkillCount(void) const;
-    AMateria *getuSkill(void) const;
-    AMateria *getSkill(void) const;
+    int getSkillCount(void) const;
+    int get_uSkillCount(void) const;
+    AMateria *getSkill(int i) const;
+    AMateria *getuSkill(int i) const;
+
     void equip(AMateria *m);
     void unequip(int idx);
     void use(int idx, ICharacter &target);
+    
+    void skillTable(std::string type) const;
 };
 
 #endif
