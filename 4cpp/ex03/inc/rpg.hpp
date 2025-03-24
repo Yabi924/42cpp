@@ -11,5 +11,6 @@
 # include "Ice.hpp"
 # include "Cure.hpp"
 # include "Fire.hpp"
+# include "Water.hpp"
 
 #endif

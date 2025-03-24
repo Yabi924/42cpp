@@ -4,6 +4,7 @@ CFLAG=-Wall -Wextra -Werror #-g3 -fsanitize=address
 SRCS=main.cpp \
 	Ice.cpp \
 	Fire.cpp \
+	Water.cpp \
 	Cure.cpp \
 	AMateria.cpp \
 	IMateriaSource.cpp \

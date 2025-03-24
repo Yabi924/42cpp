@@ -74,13 +74,13 @@ const std::string &Character::getName(void) const
 
 void Character::equip(AMateria *m)
 {
-    if (skillCount != 4)
-        skill[skillCount++] = m;
-    else
+    if (skillCount == 4)
     {
-        std::cout << "Max skill" << std::endl;
+        std::cout << this->Name << ": Bag is full." << std::endl;
         unequipSkill[uskillCount++] = m;
+        return ;
     }
+    skill[skillCount++] = m;
     skillTable(m->getType());
 }
 
