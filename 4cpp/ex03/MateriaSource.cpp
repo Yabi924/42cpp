@@ -1,6 +1,6 @@
 #include "inc/MateriaSource.hpp"
 
-MateriaSource::MateriaSource():IMateriaSource()
+MateriaSource::MateriaSource()
 {
     qty = 0;
     for (int i = 0; i < 100; i++)

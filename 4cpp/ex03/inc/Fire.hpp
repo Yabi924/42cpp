@@ -5,7 +5,6 @@
 
 class Fire: public AMateria
 {
-
 public:
     Fire();
     ~Fire();

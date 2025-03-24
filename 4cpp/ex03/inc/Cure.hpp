@@ -5,7 +5,6 @@
 
 class Cure: public AMateria
 {
-
 public:
     Cure();
     ~Cure();

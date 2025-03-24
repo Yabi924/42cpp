@@ -5,7 +5,6 @@
 
 class Ice: public AMateria
 {
-
 public:
     Ice();
     ~Ice();

@@ -5,6 +5,9 @@
 
 class MateriaSource: public IMateriaSource
 {
+private:
+    AMateria *Source[100];
+    int qty;
 
 public:
     MateriaSource();

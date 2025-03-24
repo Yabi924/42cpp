@@ -1,72 +1,102 @@
 #include "inc/rpg.hpp"
 
-int main(void)
+int main()
 {
-    IMateriaSource *src = new MateriaSource();
+    IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-    src->learnMateria(new Fire());
-    src->learnMateria(new Water());
-
+ 
     ICharacter* me = new Character("me");
 
-    // //add Materia
-    // {
-    //     AMateria *tmp;
-    //     tmp = src->createMateria("ice");
-    //     me->equip(tmp);
-    //     tmp = src->createMateria("cure");
-    //     me->equip(tmp);
-    //     tmp = src->createMateria("fire");
-    //     me->equip(tmp);
-    //     tmp = src->createMateria("water");
-    //     me->equip(tmp);
-    // }
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
 
-    // //test use()
-    // {
-    //     std::cout << "========use========\n";
-    //     ICharacter *bob = new Character("bob");
+    ICharacter* bob = new Character("bob");
 
-    //     me->use(0, *bob);
-    //     me->use(1, *bob);
-    //     me->use(2, *bob);
-    //     me->use(3, *bob);
-    //     delete bob;
-    //     std::cout << "===================\n";
-    // }
+    me->use(0, *bob);
+    me->use(1, *bob);
 
-    // //Character copy constructor
-    // {
-    //     std::cout << "========copy constructor========\n";
-    //     ICharacter *jack = new Character(*me);
-
-    //     jack->use(1, *me);
-    //     jack->use(0, *me);
-    //     tmp = src->createMateria("ice");
-    //     jack->equip(tmp);
-
-    //     jack->use(2, *me);
-    //     delete jack;
-    //     std::cout << "===================\n";
-    // }
-
-    // // Character copy operator
-    // {
-    //     std::cout << "========copy operator========\n";
-    //     Character jack = *me;
-
-    //     jack.use(1, *me);
-    //     jack.use(0, *me);
-    //     tmp = src->createMateria("ice");
-    //     jack.equip(tmp);
-
-    //     jack.use(2, *me);
-    //     std::cout << "===================\n";
-    // }
-
+    delete bob;
     delete me;
     delete src;
 
-    return (0);
+    return 0;
 }
+
+// int main(void)
+// {
+//     IMateriaSource *src = new MateriaSource;
+//     src->learnMateria(new Ice());
+//     src->learnMateria(new Cure());
+//     src->learnMateria(new Fire());
+//     src->learnMateria(new Water());
+
+//     ICharacter* Yabi = new Character("Yabi");
+//     AMateria *tmp;
+
+//     // add Materia to Character (Yabi)
+//     {
+//         tmp = src->createMateria("ice");
+//         Yabi->equip(tmp);
+//         tmp = src->createMateria("cure");
+//         Yabi->equip(tmp);
+//         tmp = src->createMateria("fire");
+//         Yabi->equip(tmp);
+//         tmp = src->createMateria("water");
+//         Yabi->equip(tmp);
+//     }
+
+//     // //test use()
+//     // {
+//     //     std::cout << "========use========\n";
+//     //     ICharacter *Noya = new Character("Noya");
+
+//     //     Yabi->use(0, *Noya);
+//     //     Yabi->use(1, *Noya);
+//     //     Yabi->use(2, *Noya);
+//     //     Yabi->use(3, *Noya);
+//     //     delete Noya;
+//     //     std::cout << "===================\n";
+//     // }
+
+//     // //Character copy constructor
+//     // {
+//     //     std::cout << "========copy constructor========\n";
+//     //     ICharacter *anotherMe = new Character(*Yabi);
+
+//     //     anotherMe->use(1, *Yabi);
+//     //     anotherMe->use(0, *Yabi);
+//     //     tmp = src->createMateria("ice");
+//     //     anotherMe->equip(tmp);
+
+//     //     anotherMe->use(2, *Yabi);
+//     //     delete anotherMe;
+//     //     std::cout << "===================\n";
+//     // }
+
+//     // // Character copy operator
+//     // {
+//     //     std::cout << "========copy operator========\n";
+//     //     Character anotherMe = *Yabi;
+
+//     //     anotherMe.use(1, *Yabi);
+//     //     anotherMe.use(0, *Yabi);
+//     //     anotherMe.unequip(3);
+//     //     tmp = src->createMateria("fire");
+//     //     anotherMe.equip(tmp);
+
+//     //     anotherMe.use(3, *Yabi);
+//     //     anotherMe.use(2, *Yabi);
+//     //     anotherMe.use(1, *Yabi);
+//     //     anotherMe.use(0, *Yabi);
+//     //     std::cout << "===================\n";
+//     // }
+
+//     delete Yabi;
+//     delete src;
+
+//     return (0);
+// }
