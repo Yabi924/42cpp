@@ -5,6 +5,7 @@ int main(void)
     IMateriaSource *src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+    src->learnMateria(new Fire());
 
     ICharacter* me = new Character("me");
 
@@ -12,6 +13,8 @@ int main(void)
     tmp = src->createMateria("ice");
     me->equip(tmp);
     tmp = src->createMateria("cure");
+    me->equip(tmp);
+    tmp = src->createMateria("fire");
     me->equip(tmp);
 
     // //test use()
@@ -21,6 +24,7 @@ int main(void)
 
     //     me->use(0, *bob);
     //     me->use(1, *bob);
+    //     me->use(2, *bob);
     //     delete bob;
     //     std::cout << "===================\n";
     // }
