@@ -2,7 +2,9 @@
 
 int main(void)
 {
+    ScavTrap b;
     ScavTrap a("Yabi");
+    ScavTrap c(a);
 
     a.guardGate();
 

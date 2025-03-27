@@ -5,10 +5,9 @@
 
 class FlagTrap: virtual public ClapTrap
 {
-
 public:
     FlagTrap();
-    FlagTrap(const std::string &_name);
+    FlagTrap(const str &_Name);
     FlagTrap(const FlagTrap &other);
     ~FlagTrap();
 
@@ -16,7 +15,5 @@ public:
 
     void highFiveGuys(void);
 };
-
-
 
 #endif

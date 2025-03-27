@@ -5,7 +5,10 @@
 //ATK = 30 (FT)
 int main(void)
 {
+    // DiamondTrap d;
     DiamondTrap a("Yabi");
+    // DiamondTrap c(a);
+
     a.whoAmI();
 
     a.takeDamage(99);
@@ -13,6 +16,7 @@ int main(void)
         a.attack("Noya");
     DiamondTrap b(a);
 
+    b.whoAmI();
     b.beRepaired(99);
     b.attack("You");
     return (0);

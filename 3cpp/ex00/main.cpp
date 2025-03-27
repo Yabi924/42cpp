@@ -2,7 +2,9 @@
 
 int main(void)
 {
+    ClapTrap b;
     ClapTrap a("Yabi");
+    ClapTrap c(a);
 
     for (int i = 0; i < 10; i++)
         a.attack("Noya");

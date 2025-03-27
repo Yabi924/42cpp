@@ -1,44 +1,49 @@
 #include "FlagTrap.hpp"
 
-FlagTrap::FlagTrap(): ClapTrap()
-{   
-    std::cout << "\033[4;35mFlagTrap Default constructor called\033[0m" << std::endl;
-    this->HitPoint = 100;
-    this->EnergyPoint = 100;
-    this->AttackDamage = 30;
+FlagTrap::FlagTrap()
+{
+    std::cout << YELLOW << "FlagTrap Default constructor called" << RESETEND;
+    Name = "unknow";
+    HitPoints = 100;
+    EnergyPoints = 100;
+    AttackDamage = 30;
 }
 
-FlagTrap::FlagTrap(const FlagTrap &other): ClapTrap(other)
+FlagTrap::FlagTrap(const str &_Name)
 {
-    std::cout << "\033[4;35mFlagTrap Copy constructor called\033[0m" << std::endl;
+    std::cout << YELLOW << "FlagTrap Name constructor called ->" << _Name << RESETEND;
+    Name = _Name;
+    HitPoints = 100;
+    EnergyPoints = 100;
+    AttackDamage = 30;
 }
 
-FlagTrap::FlagTrap(const std::string &_name): ClapTrap(_name)
+FlagTrap::FlagTrap(const FlagTrap &other)
 {
-    std::cout << "\033[4;35mFlagTrap [" << _name << "] Name constructor called\033[0m" << std::endl;
-    this->HitPoint = 100;
-    this->EnergyPoint = 100;
-    this->AttackDamage = 30;
+    std::cout << YELLOW << "FlagTrap Copy constructor called" << RESETEND;
+    *this = other;
 }
 
 FlagTrap::~FlagTrap()
-{   
-    std::cout << "\033[4;35mFlagTrap Detructor called\033[0m" << std::endl;
+{
+    std::cout << YELLOW << "FlagTrap Destructor called" << RESETEND;
 }
 
 FlagTrap &FlagTrap::operator=(const FlagTrap &other)
 {
-    std::cout << "\033[4;35mFlagTrap Copy assignment operator called\033[0m" << std::endl;
     if (this == &other)
         return (*this);
     this->Name = other.Name;
-    this->HitPoint = other.HitPoint;
-    this->EnergyPoint = other.EnergyPoint;
-    this->AttackDamage = other.AttackDamage;
+    this->HitPoints = other.HitPoints;
+    this->EnergyPoints = other.EnergyPoints;
+
     return (*this);
 }
 
 void FlagTrap::highFiveGuys(void)
 {
-    std::cout << "\033[4;35mFlagTrap " << this->Name << " have a highfive request!:D\033[0m" << std::endl;
+    if (this->HitPoints != 0)
+        std::cout << YELLOW << "FlagTrap " << this->Name << " have a highfive request!:D" << RESETEND;
+    else
+        std::cout << YELLOW << "FlagTrap highFiveGuys: " << this->Name << " is dead!" << RESETEND;
 }

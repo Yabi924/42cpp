@@ -2,61 +2,62 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-    std::cout << "\033[4;34mScavTrap Default constructor called\033[0m" << std::endl;
-    this->HitPoint = 100;
-    this->EnergyPoint = 50;
-    this->AttackDamage = 20;
+    std::cout << RED << "ScavTrap Default constructor called" << RESETEND;
+    Name = "unknow";
+    HitPoints = 100;
+    EnergyPoints = 50;
+    AttackDamage = 20;
+}
+
+ScavTrap::ScavTrap(const str &_Name): ClapTrap(_Name)
+{
+    std::cout << RED << "ScavTrap Name constructor called" << RESETEND;
+    Name = _Name;
+    HitPoints = 100;
+    EnergyPoints = 50;
+    AttackDamage = 20;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other): ClapTrap(other)
 {
-    std::cout << "\033[4;34mScavTrap Copy constructor called\033[0m" << std::endl;
-}
-
-ScavTrap::ScavTrap(const std::string &_name): ClapTrap(_name)
-{
-    std::cout << "\033[4;34mScavTrap Name constructor called\033[0m" << std::endl;
-    this->HitPoint = 100;
-    this->EnergyPoint = 50;
-    this->AttackDamage = 20;
+    std::cout << RED << "ScavTrap Copy constructor called" << RESETEND;
+    *this = other;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "\033[4;34mScavTrap Destructor called\033[0m" << std::endl;
-}
-
-void ScavTrap::guardGate(void)
-{
-    std::cout << "\033[4;34mScavTrap is now in Gate keeper mode.\033[0m" << std::endl;
+    std::cout << RED << "ScavTrap Destructor called" << RESETEND;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
-    std::cout << "\033[4;34mScavTrap Copy assignment operator called\033[0m" << std::endl;
     if (this == &other)
         return (*this);
     this->Name = other.Name;
-    this->HitPoint = other.HitPoint;
-    this->AttackDamage = other.AttackDamage;
-    this->EnergyPoint = other.EnergyPoint;
+    this->HitPoints = other.HitPoints;
+    this->EnergyPoints = other.EnergyPoints;
+
     return (*this);
 }
 
-void ScavTrap::attack(const std::string &target)
+void ScavTrap::guardGate(void)
 {
-    if (this->HitPoint == 0)
+    std::cout << RED << "ScavTrap now is Gate keeper mode." << RESETEND;
+}
+
+void ScavTrap::attack(const str &target)
+{
+    if (this->HitPoints == 0)
     {
-        std::cout << "\033[4;34mScavtrap " << this->Name << " HP=";
-        std::cout << this->HitPoint << " can't attack!\033[0m" << std::endl;
+        std::cout << RED << "ScavTrap attack: " << this->Name << " is dead!" << RESETEND;
         return ;
     }
-    if (this->EnergyPoint == 0)
+    else if (this->EnergyPoints == 0)
     {
-        std::cout << "\033[4;34mScavtrap " << this->Name << " not enough energy point!\033[0m" << std::endl;
+        std::cout << RED << "ScavTrap attack: No enough Energy Points!" << RESETEND;
         return ;
     }
-    this->EnergyPoint--;
-    std::cout << "\033[4;34mScavtrap " << this->Name << " attacks " << target;
-    std::cout << ", causing " << this->AttackDamage << " points of damage!\033[0m" << std::endl;
+    this->EnergyPoints--;
+    std::cout << RED << "ScavTrap " << this->Name << " attacks " << target << ", causing ";
+    std::cout << this->AttackDamage << " points of damage!" << RESETEND;
 }

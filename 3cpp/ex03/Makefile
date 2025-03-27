@@ -4,7 +4,7 @@ SRCS=main.cpp \
 	ClapTrap.cpp \
 	ScavTrap.cpp \
 	FlagTrap.cpp \
-	DiamondTrap.cpp \
+	DiamondTrap.cpp
 
 OBJ=$(SRCS:.cpp=.o)
 
@@ -21,3 +21,8 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+
+re: fclean all
+
+r: $(NAME)
+	./$(NAME)

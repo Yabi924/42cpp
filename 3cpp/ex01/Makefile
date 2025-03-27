@@ -21,3 +21,6 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+r: $(NAME)
+	./$(NAME)

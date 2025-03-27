@@ -3,7 +3,7 @@ CFLAG=-Wall -Wextra -Werror -g3 -fsanitize=address
 SRCS=main.cpp \
 	ClapTrap.cpp \
 	ScavTrap.cpp \
-	FlagTrap.cpp \
+	FlagTrap.cpp
 
 OBJ=$(SRCS:.cpp=.o)
 
@@ -20,3 +20,8 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+
+re: fclean all
+
+r: $(NAME)
+	./$(NAME)
