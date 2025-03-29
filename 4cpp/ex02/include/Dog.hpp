@@ -6,9 +6,8 @@
 
 class Dog: public Animal
 {
-
 private:
-        Brain *BrainPower;
+    Brain *BrainPower;
 
 public:
     Dog();
@@ -19,6 +18,8 @@ public:
     Dog &operator=(const Dog &other);
 
     void makeSound(void) const;
+    void setBrain(int i, std::string set);
+    const std::string &getBrain(int i) const;
 };
 
 #endif

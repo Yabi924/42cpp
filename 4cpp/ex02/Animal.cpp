@@ -28,8 +28,3 @@ Animal &Animal::operator=(const Animal &other)
     this->type = other.type;
     return (*this);
 }
-
-void Animal::makeSound(void) const
-{
-    std::cout << this->type + "?" << std::endl;
-}
