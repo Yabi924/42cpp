@@ -31,5 +31,5 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other)
 
 void WrongAnimal::makeSound(void) const
 {
-    std::cout << this->type + "?" << std::endl;
+    std::cout << "Wrong: " << this->type + "?" << std::endl;
 }

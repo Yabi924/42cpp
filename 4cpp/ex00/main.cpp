@@ -8,8 +8,8 @@ int main(void)
     Animal *Inu = new Dog;
 
     A->makeSound();
-    Inu->makeSound();
     Neko->makeSound();
+    Inu->makeSound();
 
     delete A;
     delete Inu;

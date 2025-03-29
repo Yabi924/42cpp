@@ -18,6 +18,8 @@ public:
     Cat &operator=(const Cat &other);
 
     void makeSound(void) const;
+    void setBrain(int i, std::string set);
+    const std::string &getBrain(int i) const;
 };
 
 #endif
