@@ -33,6 +33,7 @@ public:
     void use(int idx, ICharacter &target);
     
     void skillTable(std::string type) const;
+    void skillTable(void) const;
 };
 
 #endif

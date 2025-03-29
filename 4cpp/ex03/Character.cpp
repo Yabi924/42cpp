@@ -88,7 +88,7 @@ void Character::unequip(int idx)
 {
     if (!skill[idx] || idx < 0 || idx > 3)
     {
-        std::cout << "Empty index!" << std::endl;
+        std::cout << this->Name << ": Unquip index is empty!" << std::endl;
         return ;
     }
 
@@ -106,14 +106,15 @@ void Character::unequip(int idx)
             skill[i + 1] = NULL;
         }
     }
+    skillTable();
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-    if (idx < 0 || idx > 4)
+    if (idx < 0 || idx > 3)
         std::cout << "Charater: invalid index: " << idx << ". [Use:0-3]" << std::endl;
     else if (!skill[idx])
-        std::cout << target.getName() << " skill index:" << idx << " is empty!" << std::endl;
+        std::cout << target.getName() << ": skill index " << idx << " is empty!" << std::endl;
     else
         skill[idx]->use(target);
 }
@@ -145,6 +146,20 @@ AMateria *Character::getuSkill(int i) const
 void Character::skillTable(std::string type) const
 {
     std::cout << "Charater->" << this->Name << ": now adding->" << type <<std::endl;
+    for (int i = 0; i < 4; i++)
+    {
+        std::cout << "Skill index " << i << ":";
+        if (!skill[i])
+            std::cout << "Empty.";
+        else
+            std::cout << skill[i]->getType();
+        std::cout << std::endl;
+    }
+}
+
+void Character::skillTable(void) const
+{
+    std::cout << "Now skill:" << std::endl;
     for (int i = 0; i < 4; i++)
     {
         std::cout << "Skill index " << i << ":";

@@ -77,21 +77,19 @@ int main()
 //     //     std::cout << "===================\n";
 //     // }
 
-//     // // Character copy operator
+//     // // Character copy assignment operator
 //     // {
-//     //     std::cout << "========copy operator========\n";
+//     //     std::cout << "========copy assignment operator========\n";
 //     //     Character anotherMe = *Yabi;
-
-//     //     anotherMe.use(1, *Yabi);
-//     //     anotherMe.use(0, *Yabi);
-//     //     anotherMe.unequip(3);
-//     //     tmp = src->createMateria("fire");
-//     //     anotherMe.equip(tmp);
+//     //     ICharacter *a = new Character("Noya");
 
 //     //     anotherMe.use(3, *Yabi);
 //     //     anotherMe.use(2, *Yabi);
 //     //     anotherMe.use(1, *Yabi);
 //     //     anotherMe.use(0, *Yabi);
+
+//     //     anotherMe.use(1, *a);
+//     //     delete a;
 //     //     std::cout << "===================\n";
 //     // }
 
