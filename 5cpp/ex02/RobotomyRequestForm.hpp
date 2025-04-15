@@ -1,7 +1,9 @@
-#ifndef SCF_HPP
-# define SCF_HPP
+#ifndef RRF_HPP
+# define RRF_HPP
 
 # include "AForm.hpp"
+# include "cstdlib"
+# include <ctime>
 
 class RobotomyRequestForm: public AForm
 {

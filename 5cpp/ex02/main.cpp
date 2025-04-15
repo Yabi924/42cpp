@@ -1,54 +1,98 @@
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-void test1()
+void test3()
 {
-    Bureaucrat *Yabi = new Bureaucrat("Yabi", 1);
-    RobotomyRequestForm *RRF = new RobotomyRequestForm("A");
+    PresidentialPardonForm *f1 = new PresidentialPardonForm("A");
+    Bureaucrat *Nina = new Bureaucrat("Nina", 150);
+    Bureaucrat *Yabi = new Bureaucrat("Yabi", 6);
+    Bureaucrat *Noya = new Bureaucrat("Noya", 5);
 
-    try
-    {
-        Yabi->signForm(*RRF);
-        RRF->execute(*Yabi);
-    }
-    catch(const std::exception& e)
-    {
-        delete Yabi;
-        delete RRF;
-        std::cerr << RED << e.what() << RESETEND;
-        Yabi = NULL;
-        RRF = NULL;
-    }
-    if (Yabi)
-        delete Yabi;
-    if (RRF)
-        delete RRF;
+    std::cout << "------------------------" << std::endl;
+    std::cout << *f1 << std::endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << *Nina << std::endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << *Yabi << std::endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << *Noya << std::endl;
+    std::cout << "------------------------" << std::endl;
+
+    Nina->signForm(*f1);
+    Yabi->signForm(*f1);
+    Yabi->executeForm(*f1);
+    Noya->executeForm(*f1);
+
+    delete f1;
+    delete Nina;
+    delete Yabi;
+    delete Noya;
 }
 
 void test2()
 {
-    Bureaucrat *Yabi = new Bureaucrat("Yabi", 145);
-    Bureaucrat *Noya = new Bureaucrat("Noya", 137);
-    RobotomyRequestForm *RRF = new RobotomyRequestForm("A");
+    RobotomyRequestForm *f1 = new RobotomyRequestForm("A");
+    Bureaucrat *Nina = new Bureaucrat("Nina", 150);
+    Bureaucrat *Yabi = new Bureaucrat("Yabi", 72);
+    Bureaucrat *Noya = new Bureaucrat("Noya", 45);
 
-    try
-    {
-        Yabi->signForm(*RRF);
-        // Noya->signForm(*RRF);
-        // RRF->execute(*Yabi);
-        RRF->execute(*Noya);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << RED << e.what() << RESETEND;
-    }
+    std::cout << "------------------------" << std::endl;
+    std::cout << *f1 << std::endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << *Nina << std::endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << *Yabi << std::endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << *Noya << std::endl;
+    std::cout << "------------------------" << std::endl;
+
+    Nina->signForm(*f1);
+    Yabi->signForm(*f1);
+    Yabi->executeForm(*f1);
+    Noya->executeForm(*f1);
+
+    delete f1;
+    delete Nina;
     delete Yabi;
-    delete RRF;
+    delete Noya;
+}
+
+void test1()
+{
+    ShrubberyCreationForm *f1 = new ShrubberyCreationForm("Apple");
+    Bureaucrat *Nina = new Bureaucrat("Nina", 150);
+    Bureaucrat *Yabi = new Bureaucrat("Yabi", 138);
+    Bureaucrat *Noya = new Bureaucrat("Noya", 137);
+
+    std::cout << "------------------------" << std::endl;
+    std::cout << *f1 << std::endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << *Nina << std::endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << *Yabi << std::endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << *Noya << std::endl;
+    std::cout << "------------------------" << std::endl;
+
+    Nina->signForm(*f1);
+    Yabi->signForm(*f1);
+    Yabi->executeForm(*f1);
+    Noya->executeForm(*f1);
+
+    delete f1;
+    delete Nina;
+    delete Yabi;
     delete Noya;
 }
 
 int main(void)
 {
-    // test1();
-    test2();
+    if (MYFLAG == 1)
+        test1();
+    else if (MYFLAG == 2)
+        test2();
+    else if (MYFLAG == 3)
+        test3();
 }

@@ -4,9 +4,15 @@ CFLAG=-Wall -Wextra -Werror -g3 -fsanitize=address
 SRCS=main.cpp \
 	Bureaucrat.cpp \
 	AForm.cpp \
-	RobotomyRequestForm.cpp
+	RobotomyRequestForm.cpp \
+	PresidentialPardonForm.cpp \
+	ShrubberyCreationForm.cpp
 
 OBJ=$(SRCS:.cpp=.o)
+
+ifdef t
+	CFLAG += -DMYFLAG=$(t)
+endif
 
 all: $(NAME)
 

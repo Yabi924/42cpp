@@ -8,6 +8,9 @@
 # define GREEN "\033[0;32m"
 # define RESET  "\033[0m"
 # define RESETEND  "\033[0m" << std::endl
+# ifndef MYFLAG
+#  define MYFLAG 0
+# endif
 
 typedef std::string str;
 
@@ -45,6 +48,7 @@ public:
     void decrement(int n);
 
     void signForm(AForm &Form);
+    void executeForm(const AForm &form);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);

@@ -1,4 +1,4 @@
-NAME=RPG
+NAME=run
 CFLAG=-Wall -Wextra -Werror -g3 -fsanitize=address
 
 SRCS=main.cpp \

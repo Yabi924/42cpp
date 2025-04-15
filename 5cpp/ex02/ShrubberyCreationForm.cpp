@@ -7,5 +7,13 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::coolExecute() const
 {
-    
+    std::ofstream outfile((this->Target + "_shrubbery").c_str());
+
+    outfile << "     *" << std::endl;
+    outfile << "    ***" << std::endl;
+    outfile << "   *****" << std::endl;
+    outfile << "  *******" << std::endl;
+    outfile << "     ||" << std::endl;
+    outfile << "============= " << std::endl;
+
 }
