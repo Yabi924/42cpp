@@ -1,8 +1,9 @@
-NAME=run
+NAME=RPG
 CFLAG=-Wall -Wextra -Werror -g3 -fsanitize=address
 
 SRCS=main.cpp \
 	Bureaucrat.cpp \
+	Form.cpp
 
 OBJ=$(SRCS:.cpp=.o)
 

@@ -45,7 +45,7 @@ void Bureaucrat::increment(int n)
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)
 {
-    out << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
+    out << GREEN << b.getName() << ", bureaucrat grade " << b.getGrade() << "." << RESET;
     return out;
 }
 
@@ -57,4 +57,17 @@ const char *Bureaucrat::GradeTooHighException::what() const throw ()
 const char *Bureaucrat::GradeTooLowException::what() const throw ()
 {
     return ("Grade too low");
+}
+
+void Bureaucrat::signForm(Form &Form)
+{
+    try
+    {
+        Form.beSigned(*this);
+        std::cout << GREEN << this->Name << " signed " << Form.getFormName() << RESETEND;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << RED << this->Name << " couldn't sign " << Form.getFormName() << " because " << e.what() << '.' << RESETEND;
+    }
 }
