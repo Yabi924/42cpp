@@ -5,7 +5,7 @@ Intern::Intern(const Intern &other) { *this = other; }
 Intern::~Intern() {}
 Intern &Intern::operator=(const Intern &other) { (void)other; return *this; }
 
-AForm * Intern::makeForm(const str &_FormName, const str &_target)
+AForm *Intern::makeForm(const str &_FormName, const str &_target)
 {
     int i = -1;
     str form[3] = {"shrubbert creation", "robotomy request", "presidential pardon"};
@@ -16,14 +16,14 @@ AForm * Intern::makeForm(const str &_FormName, const str &_target)
 
     switch (i)
     {
-    case 0:
-        return new ShrubberyCreationForm(_target);
-    case 1:
-        return new RobotomyRequestForm(_target);
-    case 2:
-        return new PresidentialPardonForm(_target);
-    default:
-        return NULL;
+        case 0:
+            return new ShrubberyCreationForm(_target);
+        case 1:
+            return new RobotomyRequestForm(_target);
+        case 2:
+            return new PresidentialPardonForm(_target);
+        default:
+            return NULL;
     }
 
     return NULL;

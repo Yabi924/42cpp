@@ -38,6 +38,7 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME)
+	@rm -rf Apple_shrubbery
 
 re: fclean all
 
