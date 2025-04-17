@@ -5,6 +5,12 @@
 # include <cstdlib>
 # include <string>
 # include <exception>
+# include <algorithm>
+
+# define GREEN "\033[0;32m"
+# define RED "\033[0;31m"
+# define RESETEND  "\033[0m" << std::endl
+# define RESET  "\033[0m"
 
 # ifndef MYFLAG
 #  define MYFLAG 0
