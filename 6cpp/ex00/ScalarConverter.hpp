@@ -2,7 +2,13 @@
 # define SC_HPP
 
 # include <iostream>
+# include <cstdlib>
 # include <string>
+# include <exception>
+
+# ifndef MYFLAG
+#  define MYFLAG 0
+# endif
 
 using std::cout;
 using std::endl;
