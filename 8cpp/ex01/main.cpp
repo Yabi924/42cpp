@@ -36,11 +36,22 @@ void pdf()
 
 }
 
+void test()
+{
+    Span a(10000);
+    a.addManyNumber(999, 10010);
+
+    cout << a.shortestSpan() << endl;
+    cout << a.longestSpan() << endl;
+}
+
 int main()
 {
     if (MYFLAG == 1)
         pdf();
     else if (MYFLAG == 2)
         mytest();
+    else if (MYFLAG == 3)
+        test();
     return 0;
 }

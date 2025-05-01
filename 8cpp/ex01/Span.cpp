@@ -23,6 +23,21 @@ void Span::addNumber(int N)
     this->container.insert(N);        
 }
 
+void Span::addManyNumber(int start, int end)
+{
+    if (start > end)
+        std::swap(start, end);
+    try
+    {
+        while (start != end)
+        addNumber(start++);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
+
 int Span::longestSpan() const
 {
     set<int>::const_iterator iter_end = --this->container.end();
@@ -49,7 +64,7 @@ int Span::shortestSpan() const
 
             // cout << min << "/ (" << temp1 << " - " << temp2 << ") -> ";
             if (temp1 < temp2)
-                swap(temp1, temp2);
+                std::swap(temp1, temp2);
             // cout << '(' << temp1 <<  " - " << temp2 << ") = " <<  temp1 - temp2 << endl;
             if (temp1 != temp2 && (temp1 - temp2) < min)
                 min = (temp1 - temp2);

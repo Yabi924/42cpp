@@ -31,23 +31,14 @@ public:
     Span &operator=(const Span &other);
 
     void addNumber(int);
+    void addManyNumber(int, int);
     int shortestSpan() const;
     int longestSpan() const;
-
-    void autoAddNumber(int min, int max);
 
     class MyExceptionMax: public std::exception
     {
         const char *what() const throw() { return "Container storage is full"; }
     };
-
-    template <typename T>
-    void swap(T &a, T &b) const
-    {
-        T tmp = a;
-        a = b;
-        b = tmp;
-    }
 };
 
 // template <class Container>
