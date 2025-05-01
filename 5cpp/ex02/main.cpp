@@ -10,15 +10,13 @@ void test3()
     Bureaucrat *Yabi = new Bureaucrat("Yabi", 6);
     Bureaucrat *Noya = new Bureaucrat("Noya", 5);
 
-    std::cout << "------------------------" << std::endl;
     std::cout << *f1 << std::endl;
     std::cout << "------------------------" << std::endl;
+    std::cout << "[Bureaucrat status]" << std::endl;
     std::cout << *Nina << std::endl;
-    std::cout << "------------------------" << std::endl;
     std::cout << *Yabi << std::endl;
-    std::cout << "------------------------" << std::endl;
     std::cout << *Noya << std::endl;
-    std::cout << "------------------------" << std::endl;
+    std::cout << "------------------------" << std::endl << std::endl;
 
     Nina->signForm(*f1);
     Yabi->signForm(*f1);
@@ -38,15 +36,13 @@ void test2()
     Bureaucrat *Yabi = new Bureaucrat("Yabi", 72);
     Bureaucrat *Noya = new Bureaucrat("Noya", 45);
 
-    std::cout << "------------------------" << std::endl;
     std::cout << *f1 << std::endl;
     std::cout << "------------------------" << std::endl;
+    std::cout << "[Bureaucrat status]" << std::endl;
     std::cout << *Nina << std::endl;
-    std::cout << "------------------------" << std::endl;
     std::cout << *Yabi << std::endl;
-    std::cout << "------------------------" << std::endl;
     std::cout << *Noya << std::endl;
-    std::cout << "------------------------" << std::endl;
+    std::cout << "------------------------" << std::endl << std::endl;
 
     Nina->signForm(*f1);
     Yabi->signForm(*f1);
@@ -66,15 +62,13 @@ void test1()
     Bureaucrat *Yabi = new Bureaucrat("Yabi", 138);
     Bureaucrat *Noya = new Bureaucrat("Noya", 137);
 
-    std::cout << "------------------------" << std::endl;
     std::cout << *f1 << std::endl;
     std::cout << "------------------------" << std::endl;
+    std::cout << "[Bureaucrat status]" << std::endl;
     std::cout << *Nina << std::endl;
-    std::cout << "------------------------" << std::endl;
     std::cout << *Yabi << std::endl;
-    std::cout << "------------------------" << std::endl;
     std::cout << *Noya << std::endl;
-    std::cout << "------------------------" << std::endl;
+    std::cout << "------------------------" << std::endl << std::endl;
 
     Nina->signForm(*f1);
     Yabi->signForm(*f1);

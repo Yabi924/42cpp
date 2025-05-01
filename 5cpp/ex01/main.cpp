@@ -102,7 +102,7 @@ void testGood()
 
 void testGoodSign()
 {
-    std::cout << std::endl << "----[test good sign]-----" << std::endl;
+    std::cout << "----[test good sign]-----" << std::endl;
 
     Form f1("form1", 10, 8);
     Bureaucrat Yabi("Yabi", 5);
@@ -120,7 +120,7 @@ void testGoodSign()
     std::cout << f1 << std::endl;
 
     std::cout << "------------------------" << std::endl;
-    std::cout << RED << "test2: Bureaucrat grade 150, Form to sign=150, to execute=150" << RESETEND;
+    std::cout << RED << std::endl << "test2: Bureaucrat grade 150, Form to sign=150, to execute=150" << RESETEND;
     Form f2("form2", 150, 150);
     Bureaucrat Noya("Noya", 150);
 
@@ -162,7 +162,7 @@ void testOCCF()
     Form *C = new Form;
     Form *D = new Form("D", 105, 10);
 
-    Bureaucrat Yabi("Yabi", 150);
+    Bureaucrat Yabi("Yabi", 1);
     Yabi.signForm(*D);
 
     //only copy sign status
@@ -185,9 +185,14 @@ void testOCCF()
 
 int main(void)
 {
-    // testBad();
-    // testGood();
-    // testBadSign();
-    // testGoodSign();
-    testOCCF();
+    if (MYFLAG == 1)
+        testBad();
+    else if (MYFLAG == 2)
+        testGood();
+    else if (MYFLAG == 3)
+        testGoodSign();
+    else if (MYFLAG == 4)
+        testBadSign();
+    else if (MYFLAG == 5)
+        testOCCF();
 }

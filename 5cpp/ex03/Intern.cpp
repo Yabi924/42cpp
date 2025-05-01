@@ -23,8 +23,13 @@ AForm *Intern::makeForm(const str &_FormName, const str &_target)
         case 2:
             return new PresidentialPardonForm(_target);
         default:
-            return NULL;
+            throw FormNotFoundException();
     }
 
     return NULL;
+}
+
+const char *Intern::FormNotFoundException::what() const throw ()
+{
+    return ("Form not found");
 }

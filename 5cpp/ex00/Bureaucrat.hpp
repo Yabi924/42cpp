@@ -5,6 +5,9 @@
 # include <string>
 
 typedef std::string str;
+# ifndef MYFLAG
+#  define MYFLAG 0
+# endif 
 
 class Bureaucrat
 {

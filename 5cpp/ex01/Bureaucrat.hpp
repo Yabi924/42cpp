@@ -10,6 +10,9 @@
 # define RESETEND  "\033[0m" << std::endl
 
 typedef std::string str;
+# ifndef MYFLAG
+#  define MYFLAG 0
+# endif 
 
 class Form;
 

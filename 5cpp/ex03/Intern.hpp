@@ -13,6 +13,12 @@ public:
     Intern(const Intern &other);
     ~Intern();
 
+    class FormNotFoundException: public std::exception
+    {
+        public:
+            const char *what() const throw();
+    };
+
     Intern &operator=(const Intern &other);
     AForm *makeForm(const str &_FormName, const str &_target);
 

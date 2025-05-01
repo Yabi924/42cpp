@@ -6,7 +6,21 @@ SRCS=main.cpp \
 
 OBJ=$(SRCS:.cpp=.o)
 
+ifdef t
+	CFLAG += -DMYFLAG=$(t)
+	FCLEAN = 1
+endif
+
+f:
+ifeq ($(FCLEAN), 1)
+	@$(MAKE) fclean --no-print-directory
+endif
+	@$(MAKE) all --no-print-directory
+
 all: $(NAME)
+ifeq ($(FCLEAN), 1)
+	@$(MAKE) r --no-print-directory
+endif
 
 %.o: %.cpp
 	@c++ $(CFLAG) -std=c++98 -c $< -o $@

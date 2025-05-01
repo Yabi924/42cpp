@@ -83,7 +83,10 @@ void tsestOCCF()
 
 int main(void)
 {
-    testTooHigh();
-    // testTooLow();
-    // tsestOCCF();
+    if (MYFLAG == 1)
+        testTooHigh();
+    else if (MYFLAG == 2)
+        testTooLow();
+    else if (MYFLAG == 3)
+        tsestOCCF();
 }
