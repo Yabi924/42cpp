@@ -14,6 +14,15 @@ bool isNanInf(const str &s)
     return false;
 }
 
+int count(str s, char target)
+{
+    int len = 0;
+    for (int i = 0; i < static_cast<int>(s.length()); i++)
+        if (s[i] == target)
+            len++;    
+    return len;
+}
+
 int type(str s)
 {
     int f = 0;
@@ -25,7 +34,7 @@ int type(str s)
     {
         if (s[0] == '-' || s[0] == '+')
         {
-            if (std::count(s.begin(), s.end(), s[0]) != 1)
+            if (count(s, s[0]) != 1)
                 return (1000);
             s = s.substr(1);
         }
@@ -35,13 +44,13 @@ int type(str s)
         if (!f)
             return (1);
     }
-    else if (s[s.length() - 1] == 'f' && std::count(s.begin(), s.end(), 'f') == 1)
+    else if (s[s.length() - 1] == 'f' && count(s, 'f') == 1)
     {
-        if (std::count(s.begin(), s.end(), '.') != 1)
+        if (count(s, '.') != 1)
             return (1000);
         if (s[0] == '-' || s[0] == '+')
         {
-            if (std::count(s.begin(), s.end(), s[0]) != 1)
+            if (count(s, s[0]) != 1)
                 return (1000);
             s = s.substr(1);
         }
@@ -53,11 +62,11 @@ int type(str s)
     } 
     else
     {
-        if (std::count(s.begin(), s.end(), '.') != 1)
+        if (count(s, '.') != 1)
             return (1000);
         if (s[0] == '-' || s[0] == '+')
         {
-            if (std::count(s.begin(), s.end(), s[0]) != 1)
+            if (count(s, s[0]) != 1)
                 return (1000);
             s = s.substr(1);
         }
@@ -89,6 +98,52 @@ void printAll(char c, int i, float f, double d)
     if (d == static_cast<int>(d))
         cout << ".0";
     cout << endl;
+}
+
+void printAll(char c, str s)
+{
+    cout << "char:   ";
+    if (!std::isprint(static_cast<int>(c)))
+        cout << "Non displayable" << endl;
+    else
+        cout << "'" << c << "'" << endl;
+
+    char *end;
+    errno = 0;
+    {
+        cout << "int:    ";
+        long l = std::strtol(s.c_str(), &end, 10);
+        if (l > INT_MAX || l < INT_MIN)
+            cout << "Over flow" << endl;
+        else
+            cout << static_cast<int>(l) << endl;
+    }
+    {
+        cout << "float:  ";
+        float f = std::strtof(s.c_str(), &end);
+        if (errno == ERANGE || end == s.c_str())
+            cout << "Over flow" << endl;
+        else
+        {
+            cout << f;
+            if (f == static_cast<int>(f))
+                cout << ".0";
+            cout << "f" << endl;    
+        }
+    }
+    {
+        cout << "double: ";
+        float d = std::strtod(s.c_str(), &end);
+        if (errno == ERANGE || end == s.c_str())
+            cout << "Over flow" << endl;
+        else
+        {
+            cout << d;
+            if (d == static_cast<int>(d))
+                cout << ".0";
+            cout << endl;
+        }
+    }
 }
 
 void ScalarConverter::convert(const str &input)
@@ -125,21 +180,21 @@ void ScalarConverter::convert(const str &input)
         {
             cout << "'int'" << RESETEND;
             int i = std::atoi(input.c_str());
-            printAll(static_cast<char>(i), i, static_cast<float>(i), static_cast<double>(i));
+            printAll(static_cast<char>(i), input);
             return ;
         }
         case 2:
         {
             cout << "'float'" << RESETEND;
             float f = std::atof(input.c_str());
-            printAll(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f));
+            printAll(static_cast<char>(f), input);
             return ;
         }
         case 3:
         {
             cout << "'double'" << RESETEND;
             double d = std::strtod(input.c_str(), 0);
-            printAll(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d);
+            printAll(static_cast<char>(d), input);
             return ;
         }
         default:

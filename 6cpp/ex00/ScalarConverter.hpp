@@ -5,7 +5,8 @@
 # include <cstdlib>
 # include <string>
 # include <exception>
-# include <algorithm>
+# include <cerrno>
+# include <climits>
 
 # define GREEN "\033[0;32m"
 # define RED "\033[0;31m"
