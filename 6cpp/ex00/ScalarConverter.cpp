@@ -114,7 +114,7 @@ void printAll(char c, str s)
         cout << "int:    ";
         long l = std::strtol(s.c_str(), &end, 10);
         if (l > INT_MAX || l < INT_MIN)
-            cout << "Over flow" << endl;
+            cout << "Overflow" << endl;
         else
             cout << static_cast<int>(l) << endl;
     }
@@ -122,20 +122,20 @@ void printAll(char c, str s)
         cout << "float:  ";
         float f = std::strtof(s.c_str(), &end);
         if (errno == ERANGE || end == s.c_str())
-            cout << "Over flow" << endl;
+            cout << "Overflow" << endl;
         else
         {
             cout << f;
             if (f == static_cast<int>(f))
                 cout << ".0";
-            cout << "f" << endl;    
+            cout << "f" << endl;
         }
     }
     {
         cout << "double: ";
         float d = std::strtod(s.c_str(), &end);
         if (errno == ERANGE || end == s.c_str())
-            cout << "Over flow" << endl;
+            cout << "Overflow" << endl;
         else
         {
             cout << d;
