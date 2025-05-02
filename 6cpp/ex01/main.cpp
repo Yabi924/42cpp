@@ -32,7 +32,7 @@ void test()
 
     //can use either
     // delete new_data;
-    // delete data;
+    delete data;
 }
 
 int main()

@@ -26,4 +26,5 @@ class B: public Base
 };
 
 class C: public Base
-{};
+{
+};

@@ -1,5 +1,5 @@
 NAME=Serialization
-CFLAG=-Wall -Wextra -Werror -g3 -fsanitize=address #-std=c++98
+CFLAG=-Wall -Wextra -Werror #-g3 -fsanitize=address #-std=c++98
 
 SRCS=main.cpp \
 	Serialization.cpp
@@ -38,3 +38,6 @@ re: fclean all
 
 r: $(NAME)
 	@./$(NAME)
+
+val: $(NAME)
+	valgrind --leak-check=full --track-origins=yes ./$(NAME)

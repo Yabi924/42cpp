@@ -16,8 +16,8 @@ Base *generate()
         cout << "generated B" << endl;
         return (new B);
     }
-    cout << "generated C" << endl;
 
+    cout << "generated C" << endl;
     return (new C);
 }
 
