@@ -1,7 +1,8 @@
-NAME=ms
+NAME=btc
 CFLAG=-Wall -Wextra -Werror -g3 -fsanitize=address
 
 SRCS=main.cpp \
+	BitcoinExchange.cpp
 
 OBJ=$(SRCS:.cpp=.o)
 
