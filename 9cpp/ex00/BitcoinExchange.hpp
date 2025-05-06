@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
+#include <map>
 
 using std::string;
 using std::cout;
