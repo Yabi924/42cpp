@@ -29,8 +29,8 @@ void Span::addManyNumber(int start, int end)
         std::swap(start, end);
     try
     {
-        while (start != end)
-        addNumber(start++);
+        while (start != end + 1)
+            addNumber(start++);
     }
     catch(const std::exception& e)
     {

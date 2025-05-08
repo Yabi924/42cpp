@@ -38,8 +38,8 @@ void pdf()
 
 void test()
 {
-    Span a(10000);
-    a.addManyNumber(999, 10010);
+    Span a(20000);
+    a.addManyNumber(1, 10010);
 
     cout << a.shortestSpan() << endl;
     cout << a.longestSpan() << endl;
