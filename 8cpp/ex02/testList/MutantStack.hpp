@@ -21,8 +21,8 @@ public:
     ~MutantStack();
 
     MutantStack &operator=(const MutantStack &other);
-    typedef class list<T>::iterator iterator;
-    typedef class list<T>::const_iterator const_iterator;
+    typedef typename list<T>::iterator iterator;
+    typedef typename list<T>::const_iterator const_iterator;
 
     iterator begin();
     iterator end();

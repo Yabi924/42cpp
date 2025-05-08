@@ -23,8 +23,8 @@ public:
     ~MutantStack();
 
     MutantStack &operator=(const MutantStack &other);
-    typedef class deque<T>::iterator iterator;
-    typedef class deque<T>::const_iterator const_iterator;
+    typedef typename deque<T>::iterator iterator;
+    typedef typename deque<T>::const_iterator const_iterator;
 
     iterator begin();
     iterator end();

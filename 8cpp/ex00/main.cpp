@@ -3,7 +3,7 @@
 template <class Container>
 void print(Container &ctr)
 {
-    class Container::iterator iter = ctr.begin();
+    typename Container::iterator iter = ctr.begin();
     while (iter != ctr.end())
         cout << *iter++;
     cout << endl;

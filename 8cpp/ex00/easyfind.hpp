@@ -20,10 +20,10 @@ class MyExceptionNotFound: public std::exception
     const char *what() const throw() { return "Value not found"; }
 };
 
-template <class T>
-class T::iterator easyfind(T &container, int n)
+template <typename T>
+typename T::iterator easyfind(T &container, int n)
 {
-    class T::iterator iter = std::find(container.begin(), container.end(), n);
+    typename T::iterator iter = std::find(container.begin(), container.end(), n);
     if (iter == container.end())
         throw MyExceptionNotFound();
     return iter;
