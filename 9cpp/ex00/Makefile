@@ -1,5 +1,5 @@
 NAME=btc
-CFLAG=-Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAG=-Wall -Wextra -Werror -g3 -fsanitize=address
 
 SRCS=main.cpp \
 	BitcoinExchange.cpp
@@ -37,7 +37,7 @@ fclean: clean
 re: fclean all
 
 r: $(NAME)
-	@./$(NAME)
+	@./$(NAME) input.txt
 
 v: $(NAME)
 	@valgrind --leak-check=full --track-origins=yes ./$(NAME) input.txt

@@ -19,7 +19,6 @@ class BitcoinExchange
 {
 private:
     std::map<string, double> data;
-    std::map<string, double> input;
 
 public:
     BitcoinExchange();

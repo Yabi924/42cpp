@@ -31,7 +31,6 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
     if (this == &other)
         return (*this);
 
-    this->input = other.input;
     this->data = other.data;
     return (*this);
 }
@@ -61,7 +60,7 @@ bool isLeafYear(int yyyy)
 
 bool BitcoinExchange::validDateValue(string &line)
 {
-    if (line.length() < 13 || !line.substr(10, 3).compare(" | "))
+    if (line.length() < 13 || line.substr(10, 3).compare(" | "))
         return false;
 
     string yyyy = line.substr(0, 4);
@@ -98,9 +97,17 @@ bool BitcoinExchange::validDateValue(string &line)
     double Value = 0;
     std::stringstream ssValue(valueStr);
     ssValue >> Value;
-    this->input[line.substr(0, 10)] = Value;
+
+    string date = line.substr(0, 10);
+    std::map<string, double>::iterator iter = this->data.lower_bound(date);
+
+    if (iter == this->data.begin() && !(iter->first <= date))
+        return false;
+
+    iter--;
     cout << std::fixed << std::setprecision(2);
-    cout << line << " | " << this->input[line.substr(0, 10)] << endl;
+    cout << line << " -> " << iter->second * Value << endl;
+
     return true;
 }
 

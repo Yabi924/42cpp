@@ -20,6 +20,6 @@ int main(int argc, char **argv)
     std::getline(infile, line);
     while (std::getline(infile, line))
         if (!a.validDateValue(line))
-            return (1);
+            cerr << "Error : " << line << endl;
     return (0);
 }
