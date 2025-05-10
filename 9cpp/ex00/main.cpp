@@ -15,12 +15,11 @@ int main(int argc, char **argv)
         return (1);
     }
     BitcoinExchange a;
-    string file;
-    if (std::getline(infile, file))
-        if (file != "date,exchange_rate")
-            return (1);
-    while (std::getline(infile, file))
-        if (!a.validDate(file))
+
+    string line;
+    std::getline(infile, line);
+    while (std::getline(infile, line))
+        if (!a.validDateValue(line))
             return (1);
     return (0);
 }

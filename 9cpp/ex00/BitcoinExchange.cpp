@@ -1,6 +1,29 @@
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange() {}
+bool errormsg(string m)
+{
+    cerr << m << endl;
+    return false;
+}
+
+BitcoinExchange::BitcoinExchange()
+{
+    string line;
+    std::ifstream file("data.csv");
+
+    std::getline(file, line);
+    while (std::getline(file, line))
+    {
+        std::stringstream valueStr(line.substr(11));
+        double value = 0;
+        valueStr >> value;
+        data[line.substr(0, 10)] = value;
+        // cout << std::fixed << std::setprecision(2);
+        // cout << line << " | " << c[line.substr(0, 10)] << endl;
+
+    }
+
+}
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) { *this = other; }
 BitcoinExchange::~BitcoinExchange() {}
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
@@ -8,7 +31,8 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
     if (this == &other)
         return (*this);
 
-    this->c = other.c;
+    this->input = other.input;
+    this->data = other.data;
     return (*this);
 }
 
@@ -21,8 +45,10 @@ bool BitcoinExchange::validValue(string line)
             if (line[i] != '.')
                 return false;
 
-    double value = std::atof(line.c_str());
-    if (value < 0)
+    std::stringstream valueStr(line);
+    double value = 0;
+    valueStr >> value;
+    if (value < 0 || value > 1000)
         return false;
 
     return true;
@@ -33,9 +59,9 @@ bool isLeafYear(int yyyy)
     return ((yyyy % 4 == 0 && yyyy % 100 != 0) || yyyy % 100);
 }
 
-bool BitcoinExchange::validDate(string &line)
+bool BitcoinExchange::validDateValue(string &line)
 {
-    if (line[10] != ',')
+    if (line.length() < 13 || !line.substr(10, 3).compare(" | "))
         return false;
 
     string yyyy = line.substr(0, 4);
@@ -64,14 +90,17 @@ bool BitcoinExchange::validDate(string &line)
                     return false;
     }
 
-    string value = line.substr(11);
+    string valueStr = line.substr(13);
 
-    if (!validValue(value))
+    if (!validValue(valueStr))
         return false;
 
-    this->c[line.substr(0, 10)] = std::atof(value.c_str());
-    cout << line << " | " << c[line.substr(0, 10)] << endl;
-
+    double Value = 0;
+    std::stringstream ssValue(valueStr);
+    ssValue >> Value;
+    this->input[line.substr(0, 10)] = Value;
+    cout << std::fixed << std::setprecision(2);
+    cout << line << " | " << this->input[line.substr(0, 10)] << endl;
     return true;
 }
 

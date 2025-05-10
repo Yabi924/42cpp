@@ -8,6 +8,7 @@
 #include <sstream>
 #include <exception>
 #include <cstdlib>
+#include <iomanip>
 
 using std::string;
 using std::cout;
@@ -17,7 +18,8 @@ using std::cerr;
 class BitcoinExchange
 {
 private:
-    std::map<string, float> c;
+    std::map<string, double> data;
+    std::map<string, double> input;
 
 public:
     BitcoinExchange();
@@ -25,7 +27,7 @@ public:
     ~BitcoinExchange();
     BitcoinExchange &operator=(const BitcoinExchange &other);
 
-    bool validDate(string &line);
+    bool validDateValue(string &line);
     bool validValue(string line);
 
     class DateValueException: public std::exception
