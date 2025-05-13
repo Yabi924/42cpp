@@ -26,13 +26,21 @@ public:
     PmergeMe(char **input);
     PmergeMe(const PmergeMe &);
     ~PmergeMe();
-    
+    PmergeMe &operator=(const PmergeMe &);
+
     bool isValid(string input);
     void sortVec(char **input);
+    // void MergeSort(std::vector<std::pair<int, int> > &);
 
     std::pair<int, int> getInput(string a, string b);
 
-    PmergeMe &operator=(const PmergeMe &);
+    template <typename C>
+    void printValue(C ctr);
+
+    template <typename C>
+    void MergeSort(C &p);
+
+    void insertSort(std::vector<std::pair<int, int> > &p);
 
     class InputInvalidException: public std::exception
     {
@@ -40,18 +48,6 @@ public:
             const char *what() const throw();
     };
 
-
-
-    template <typename C>
-    void printValue(C ctr)
-    {
-        int i = 0;
-        typename C::iterator iter = ctr.begin();
-        while (iter != ctr.end())
-        {
-            cout << i++ << ": " << iter->first << ", " << iter->second << endl;
-            iter++;
-        }
-        cout << "Single: " << this->single << endl;
-    }
 };
+
+#include "PmergeMe.tpp"
