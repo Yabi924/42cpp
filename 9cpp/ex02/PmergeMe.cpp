@@ -6,7 +6,7 @@ PmergeMe::~PmergeMe() {}
 PmergeMe &PmergeMe::operator=(const PmergeMe &a)
 {
     this->vec = a.vec;
-    this->deq = a.deq;
+    // this->deq = a.deq;
     this->single = a.single;
 
     return *this;
@@ -22,7 +22,7 @@ PmergeMe::PmergeMe(char **in): single(-1)
     cout << "before: ";
     while (in[++i])
         cout << in[i] << " ";
-    cout << endl;
+    cout << endl << "-----------------------------------" << endl;
 }
 
 bool PmergeMe::isValid(string input)
@@ -67,46 +67,50 @@ void PmergeMe::sortVec(char **input)
     }
     // cout << "-----------------------------------\n";
     // printValue(temp);
-    cout << "-----------------------------------\n";
+    // cout << "-----------------------------------\n";
     MergeSort(temp);
-    printValue(temp);
+    // printPair(temp);
     insertSort(temp);
 }
 
 void PmergeMe::insertSort(std::vector<std::pair<int, int> > &p)
 {
-    std::vector<int> S;
     std::vector<int> pend;
 
     std::vector<std::pair<int, int> >::iterator iter = p.begin();
     for (; iter != p.end(); iter++)
     {
-        S.push_back(iter->second);
         pend.push_back(iter->first);
+        this->Result.push_back(iter->second);
     }
 
-    cout << "-----------------------------------\n";
     int JacobsthalNum = 0;
-    int SLength = S.size();
+    int SLength = pend.size();
     for (int i = 0; 1; i++)
     {
-        JacobsthalNum = Jacobsthal(i + 2);
+        JacobsthalNum = Jacobsthal(i + 2) - 1;
         // cout << endl << "i: " << i << " j: "  << JacobsthalNum << endl;
         if (JacobsthalNum > SLength)
            break ;
-        std::vector<int>::iterator temp = S.begin() + i;
+        std::vector<int>::iterator temp = pend.begin() + i;
         int nbr = *temp;
-        // cout << *temp << " S:" << endl;
+        // cout << *temp << " pend:" << endl;
         // printValue(S, 1);
 
-        S.erase(temp);
-        S.insert(S.begin() + JacobsthalNum, nbr);
+        pend.erase(temp);
+        pend.insert(pend.begin() + JacobsthalNum, nbr);
     }
     // cout << "-----------------------------------\n";
-    // cout << "S:" << endl;
-    // printValue(S, 1);
+    // cout << "pend:" << endl;
+    // printValue(pend);
 
-    //to do=binary search
+    for (std::vector<int>::iterator iter = pend.begin(); iter != pend.end(); iter++)
+        this->Result.insert(std::lower_bound(this->Result.begin(), this->Result.end(), *iter), *iter);
+
+    if (this->single != -1)
+        this->Result.insert(std::lower_bound(this->Result.begin(), this->Result.end(), this->single), this->single);
+
+    // IsSorted(this->Result);
 }
 
 int PmergeMe::Jacobsthal(int n) const
@@ -150,3 +154,12 @@ int PmergeMe::Jacobsthal(int n) const
 //     printValue(p);
 //     cout << "-----------------------------------\n";
 // }
+
+void PmergeMe::printResult()
+{
+    cout << "after: ";
+    std::vector<int>::iterator iter = this->Result.begin();
+    for (; iter != this->Result.end(); iter++)
+        cout << *iter << " ";
+    cout << endl;
+}

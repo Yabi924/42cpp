@@ -35,7 +35,7 @@ void PmergeMe::MergeSort(C &p)
 }
 
 template <typename C>
-void PmergeMe::printValue(C ctr)
+void PmergeMe::printPair(C ctr)
 {
     int i = 0;
     typename C::iterator iter = ctr.begin();
@@ -48,9 +48,8 @@ void PmergeMe::printValue(C ctr)
 }
 
 template <typename C>
-void PmergeMe::printValue(C ctr, int a)
+void PmergeMe::printValue(C ctr)
 {
-    (void)a;
     int i = 0;
     typename C::iterator iter = ctr.begin();
     while (iter != ctr.end())
@@ -58,4 +57,25 @@ void PmergeMe::printValue(C ctr, int a)
         cout << "idx" << i++ << ": " << *iter << endl;
         iter++;
     }
+}
+
+template <typename C>
+void PmergeMe::IsSorted(C ctr)
+{
+    typename C::iterator iter = ctr.begin();
+    while (iter != ctr.end())
+    {
+        int a = *iter++;
+        int b = 0;
+        if (iter != ctr.end())
+            b = *iter++;
+        else
+            break ;
+        if (a > b)
+        {
+            cout << "You're fuck up" << endl;
+            return ;
+        }
+    }
+    cout << "Sorted :)" << endl;
 }

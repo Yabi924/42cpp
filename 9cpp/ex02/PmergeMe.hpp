@@ -8,6 +8,7 @@
 #include <sstream>
 #include <exception>
 #include <climits>
+#include <ctime>
 
 using std::string;
 using std::cout;
@@ -18,8 +19,20 @@ class PmergeMe
 {
 private:
     std::vector<std::pair<int, int> > vec;
-    std::deque<std::pair<int, int> > deq;
+    std::vector<int> Result;
+    // std::deque<std::pair<int, int> > deq;
     int single;
+
+    template <typename C>
+    void printPair(C ctr);
+
+    template <typename C>
+    void printValue(C ctr);
+
+    template <typename C>
+    void MergeSort(C &p);
+
+    void insertSort(std::vector<std::pair<int, int> > &p);
 
 public:
     PmergeMe();
@@ -30,21 +43,12 @@ public:
 
     bool isValid(string input);
     void sortVec(char **input);
+    void printResult();
     // void MergeSort(std::vector<std::pair<int, int> > &);
 
     std::pair<int, int> getInput(string a, string b);
 
-    template <typename C>
-    void printValue(C ctr);
-
-    template <typename C>
-    void printValue(C ctr, int a);
-
-    template <typename C>
-    void MergeSort(C &p);
-
     int Jacobsthal(int n) const;
-    void insertSort(std::vector<std::pair<int, int> > &p);
 
     class InputInvalidException: public std::exception
     {
@@ -52,6 +56,8 @@ public:
             const char *what() const throw();
     };
 
+    template <typename C>
+    void IsSorted(C ctr);
 };
 
 #include "PmergeMe.tpp"
