@@ -10,8 +10,8 @@ void PmergeMe::MergeSort(C &p)
     C a(p.begin(), p.begin() + mid);
     C b(p.begin() + mid, p.end());
 
-    TMergeSort(a);
-    TMergeSort(b);
+    MergeSort(a);
+    MergeSort(b);
     p.clear();
 
     typename C::iterator iterA = a.begin();
@@ -29,9 +29,9 @@ void PmergeMe::MergeSort(C &p)
     while (iterB != b.end())
         p.push_back(*iterB++);
 
-    cout << "-----------------------------------\n";
-    printValue(p);
-    cout << "-----------------------------------\n";
+    // cout << "-----------------------------------\n";
+    // printValue(p);
+    // cout << "-----------------------------------\n";
 }
 
 template <typename C>
@@ -41,8 +41,21 @@ void PmergeMe::printValue(C ctr)
     typename C::iterator iter = ctr.begin();
     while (iter != ctr.end())
     {
-        cout << "Idx" << i++ << ": " << iter->first << ", " << iter->second << endl;
+        cout << "idx" << i++ << ": " << iter->first << ", " << iter->second << endl;
         iter++;
     }
     cout << "Single: " << this->single << endl;
+}
+
+template <typename C>
+void PmergeMe::printValue(C ctr, int a)
+{
+    (void)a;
+    int i = 0;
+    typename C::iterator iter = ctr.begin();
+    while (iter != ctr.end())
+    {
+        cout << "idx" << i++ << ": " << *iter << endl;
+        iter++;
+    }
 }

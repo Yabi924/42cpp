@@ -38,8 +38,12 @@ public:
     void printValue(C ctr);
 
     template <typename C>
+    void printValue(C ctr, int a);
+
+    template <typename C>
     void MergeSort(C &p);
 
+    int Jacobsthal(int n) const;
     void insertSort(std::vector<std::pair<int, int> > &p);
 
     class InputInvalidException: public std::exception
