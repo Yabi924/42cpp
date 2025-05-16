@@ -3,7 +3,10 @@
 int main(int argc, char **argv)
 {
     if (argc < 2)
+    {
+        cerr << "Error: use ./PmergeMe number1 number2 ..." << endl; 
         return 1;
+    }
     argv = argv + 1;
 
     try

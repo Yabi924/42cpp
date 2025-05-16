@@ -90,14 +90,13 @@ void PmergeMe::insertSort(std::vector<std::pair<int, int> > &p)
     {
         JacobsthalNum = Jacobsthal(i + 2) - 1;
         // cout << endl << "i: " << i << " j: "  << JacobsthalNum << endl;
-        if (JacobsthalNum > SLength)
+        if (JacobsthalNum >= SLength || i == SLength)
            break ;
-        std::vector<int>::iterator temp = pend.begin() + i;
-        int nbr = *temp;
-        // cout << *temp << " pend:" << endl;
-        // printValue(S, 1);
+        int nbr = pend[i];
+        // cout << "pend[" << i << "]: " << nbr << " pend:" << endl;
+        // printValue(pend);
 
-        pend.erase(temp);
+        pend.erase(pend.begin() + i);
         pend.insert(pend.begin() + JacobsthalNum, nbr);
     }
     // cout << "-----------------------------------\n";
@@ -157,7 +156,7 @@ int PmergeMe::Jacobsthal(int n) const
 
 void PmergeMe::printResult()
 {
-    cout << "after: ";
+    cout << "After: ";
     std::vector<int>::iterator iter = this->Result.begin();
     for (; iter != this->Result.end(); iter++)
         cout << *iter << " ";
