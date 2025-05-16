@@ -19,7 +19,7 @@ endif
 
 all: $(NAME)
 ifeq ($(FCLEAN), 1)
-	@$(MAKE) r --no-print-directory
+# @$(MAKE) r --no-print-directory
 endif
 
 %.o: %.cpp

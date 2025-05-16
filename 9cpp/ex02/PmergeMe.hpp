@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <deque>
+#include <list>
 #include <algorithm>
 #include <sstream>
 #include <exception>
@@ -15,13 +15,25 @@ using std::cout;
 using std::endl;
 using std::cerr;
 
+#ifndef MYFLAG
+# define MYFLAG 0
+# endif
+
 class PmergeMe
 {
 private:
-    std::vector<std::pair<int, int> > vec;
+    std::list<int> ResultList;
     std::vector<int> Result;
     // std::deque<std::pair<int, int> > deq;
     int single;
+
+
+    bool isValid(string input);
+    std::pair<int, int> getInput(string a, string b);
+    void MergeSort(std::vector<std::pair<int, int> > &);
+    void MergeSortList(std::list<std::pair<int, int> > &);
+
+    int Jacobsthal(int n) const;
 
     template <typename C>
     void printPair(C ctr);
@@ -29,10 +41,8 @@ private:
     template <typename C>
     void printValue(C ctr);
 
-    template <typename C>
-    void MergeSort(C &p);
-
     void insertSort(std::vector<std::pair<int, int> > &p);
+    void insertSortList(std::list<std::pair<int, int> > &p);
 
 public:
     PmergeMe();
@@ -41,14 +51,13 @@ public:
     ~PmergeMe();
     PmergeMe &operator=(const PmergeMe &);
 
-    bool isValid(string input);
+    //vector
     void sortVec(char **input);
     void printResult();
-    // void MergeSort(std::vector<std::pair<int, int> > &);
 
-    std::pair<int, int> getInput(string a, string b);
-
-    int Jacobsthal(int n) const;
+    //list
+    void sortList(char **input);
+    void printListResult();
 
     class InputInvalidException: public std::exception
     {

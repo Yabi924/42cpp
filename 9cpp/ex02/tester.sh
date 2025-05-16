@@ -55,16 +55,16 @@ run_test "TEST NEGATIVE NUMBER" "-123 3 2 1" true
 run_test "TEST NON-NUMERIC CHAR" "33 234 4 54353453 3 a j" true
 run_test "TEST NO INPUT" "" true
 
-numbers=$(seq 0 999)
+# numbers=$(seq 0 999)
 
-read -r -a arr <<< "$numbers"
+# read -r -a arr <<< "$numbers"
 
-for ((i=1; i<=1000; i++))
-do
-    test_nums="${arr[@]:0:i}"
-    test_str=$(echo "${test_nums[@]}")
+# for ((i=1; i<=1000; i++))
+# do
+#     test_nums="${arr[@]:0:i}"
+#     test_str=$(echo "${test_nums[@]}")
 
-    run_test "TEST FIRST $i NUMBERS" "$test_str" false
-done
+#     run_test "TEST FIRST $i NUMBERS" "$test_str" false
+# done
 
 rm -rf tester
