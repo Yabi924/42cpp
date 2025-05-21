@@ -19,10 +19,8 @@ BitcoinExchange::BitcoinExchange()
         valueStr >> value;
         data[line.substr(0, 10)] = value;
         // cout << std::fixed << std::setprecision(2);
-        // cout << line << " | " << c[line.substr(0, 10)] << endl;
-
+        // cout << line << " | " << data[line.substr(0, 10)] << endl;
     }
-
 }
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) { *this = other; }
 BitcoinExchange::~BitcoinExchange() {}
@@ -101,17 +99,19 @@ bool BitcoinExchange::validDateValue(string &line)
     string date = line.substr(0, 10);
     std::map<string, double>::iterator iter = this->data.lower_bound(date);
 
-    if (iter == this->data.begin() && !(iter->first <= date))
-        return false;
+    if (iter == data.end())
+    {
+        --iter;
+    }
+    else if (iter->first != date)
+    {
+        if (iter == data.begin())
+            return false;
+        --iter;
+    }
 
-    iter--;
     cout << std::fixed << std::setprecision(2);
-    cout << line << " -> " << iter->second * Value << endl;
+    cout << line << " -> " << GREEN << iter->second * Value << RESETEND;
 
     return true;
-}
-
-const char *BitcoinExchange::DateValueException::what() const throw()
-{
-    return "Invalid date or value";
 }

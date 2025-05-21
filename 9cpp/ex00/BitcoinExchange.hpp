@@ -10,6 +10,11 @@
 #include <cstdlib>
 #include <iomanip>
 
+#define RESET  "\033[0m"
+#define RESETEND  "\033[0m" << endl
+#define RED    "\033[0;31m"
+#define GREEN  "\033[0;32m"
+
 using std::string;
 using std::cout;
 using std::endl;
@@ -29,8 +34,4 @@ public:
     bool validDateValue(string &line);
     bool validValue(string line);
 
-    class DateValueException: public std::exception
-    {
-        const char *what() const throw();
-    };
 };
