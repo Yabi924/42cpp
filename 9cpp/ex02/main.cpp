@@ -10,7 +10,7 @@ void vec(PmergeMe mer, char **argv)
 
     double VecTime = static_cast<double>(timeEnd - timeStart) * 1e6 / CLOCKS_PER_SEC;
 
-    // mer.printResult();
+    mer.printResult();
     cout << "Vector: " << VecTime << "µs" << endl;
 }
 
@@ -22,7 +22,7 @@ void lst(PmergeMe mer, char **argv)
 
     clock_t timeEnd = clock();
 
-    // mer.printListResult();
+    mer.printListResult();
     double Time = static_cast<double>(timeEnd - timeStart) * 1e6 / CLOCKS_PER_SEC;
     cout << "List: " << Time << "µs" << endl;
 }
