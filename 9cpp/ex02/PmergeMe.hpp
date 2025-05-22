@@ -17,16 +17,15 @@ using std::cerr;
 
 #ifndef MYFLAG
 # define MYFLAG 0
-# endif
+#endif
 
 class PmergeMe
 {
 private:
     std::list<int> ResultList;
     std::vector<int> Result;
-    // std::deque<std::pair<int, int> > deq;
-    int single;
 
+    int single;
 
     bool isValid(string input);
     std::pair<int, int> getInput(string a, string b);

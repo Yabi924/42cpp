@@ -1,11 +1,13 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe() {}
+PmergeMe::PmergeMe(): single(-1) {}
 PmergeMe::PmergeMe(const PmergeMe &a) { *this = a; }
 PmergeMe::~PmergeMe() {}
 PmergeMe &PmergeMe::operator=(const PmergeMe &a)
 {
     this->single = a.single;
+    this->Result = a.Result;
+    this->ResultList = a.ResultList;
 
     return *this;
 }
@@ -86,7 +88,7 @@ void PmergeMe::MergeSort(std::vector<std::pair<int, int> > &p)
 
     std::vector<std::pair<int, int> >::iterator iterA = a.begin();
     std::vector<std::pair<int, int> >::iterator iterB = b.begin();
-    while (iterA != a.end() &&  iterB != b.end())
+    while (iterA != a.end() && iterB != b.end())
     {
         if (iterA->second > iterB->second)
             p.push_back(*iterB++);
