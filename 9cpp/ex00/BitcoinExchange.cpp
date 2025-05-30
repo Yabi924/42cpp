@@ -53,12 +53,13 @@ bool BitcoinExchange::validValue(string line)
 
 bool isLeafYear(int yyyy)
 {
-    return ((yyyy % 4 == 0 && yyyy % 100 != 0) || yyyy % 100);
+    return ((yyyy % 4 == 0 && yyyy % 100 != 0) || yyyy % 400);
 }
 
 bool BitcoinExchange::validDateValue(string &line)
 {
-    if (line.length() < 13 || line.substr(10, 3).compare(" | "))
+    if (line.length() < 13 || line.substr(10, 3).compare(" | ") ||
+        line[4] != '-' || line[7] != '-')
         return false;
 
     string yyyy = line.substr(0, 4);
@@ -76,7 +77,7 @@ bool BitcoinExchange::validDateValue(string &line)
     int month = std::atoi(mm.c_str());
     int day = std::atoi(dd.c_str());
 
-    if (month < 1 && month > 12)
+    if (month < 1 || month > 12)
         return false;
 
     {
@@ -100,9 +101,7 @@ bool BitcoinExchange::validDateValue(string &line)
     std::map<string, double>::iterator iter = this->data.lower_bound(date);
 
     if (iter == data.end())
-    {
         --iter;
-    }
     else if (iter->first != date)
     {
         if (iter == data.begin())

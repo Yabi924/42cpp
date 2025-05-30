@@ -111,6 +111,9 @@ void PmergeMe::insertSort(std::vector<std::pair<int, int> > &p)
     std::vector<int> pend;
 
     std::vector<std::pair<int, int> >::iterator iter = p.begin();
+    pend.push_back(iter->first);
+    pend.push_back(iter->second);
+    iter++;
     for (; iter != p.end(); iter++)
     {
         pend.push_back(iter->first);
@@ -200,6 +203,9 @@ void PmergeMe::insertSortList(std::list<std::pair<int, int> > &p)
     std::list<int> pend;
 
     std::list<std::pair<int, int> >::iterator iter = p.begin();
+    pend.push_back(iter->first);
+    pend.push_back(iter->second);
+    iter++;
     for (; iter != p.end(); iter++)
     {
         pend.push_back(iter->first);
